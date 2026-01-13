@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/13 21:13:26 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/13 21:19:23 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 //# include <limits.h>
 # include <stdio.h>
 
-typedef	struct s_stack
+typedef struct s_stack
 {
 	int				value;
 	int				index;
@@ -29,6 +29,5 @@ typedef	struct s_stack
 	int				cost_b;
 	struct s_stack	*next;
 }	t_stack;
-
 
 #endif
