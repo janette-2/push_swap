@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 14:02:59 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:29:40 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,12 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	source = NULL;
 	return (source);
+}
+
+int	ft_isdigit(int n)
+{
+	if ('0' <= n && n <= '9')
+		return (n);
+	return (0);
 }
 

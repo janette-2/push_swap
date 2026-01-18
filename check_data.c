@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 14:08:38 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 17:37:14 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,27 @@ If it is 0, it means that the value given is a block of numbers in a string.
 int	several_in_string(char *argv)
 {
 	if (ft_memchr(argv, ' ', ft_strlen(argv)))
+		return (1);
+	else
+		return (0);
+}
+
+/* is_sign
+
+Description: Function that detects if the text found starts with a valid single 
+sign. Either '-' or '+'. These can only be found once.
+
+Arguments: Takes an *argv[], one of the strings given by arguments to main().
+
+Returns: 1 or 0.
+If the function returns 1, it would mean that it has detected that the elements
+starts by a single sign and has a number after it.
+It it returns 0, it would mean that we have one of these invalid cases:
++, -, ++1, +-0, ---0a */
+
+int	valid_sign(char *argv)
+{
+	if ((argv[0] == '-' || argv[0] == '+') && ft_isdigit(argv[1]) != 0)
 		return (1);
 	else
 		return (0);
