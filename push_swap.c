@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 20:08:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:41:58 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 int	main(int argc, char *argv[])
 {
-	int	f_zero;
+	int	n_digit;
 
 	if (argc == 1)
 		return (0);
-	f_zero = filling_zeros(argv[1]);
-	printf("Es un elemento relleno de ceros?\n%d\n", f_zero);
+	n_digit = not_digits(argv[1]);
+	printf("Es un que contiene no-digitos?\n%d\n", n_digit);
 }
 /* Como es un programa, cada vez que haces algún cambio, tienes
 que volver a compilar el archivo (para pruebas sin el Makefile) y

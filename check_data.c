@@ -6,13 +6,13 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 20:16:22 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:44:18 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* is_single_number
+/* several_in_string
 
 Description: Function to detect if the values given are isolated numbers in each 
 string or it is an string starting with "x y  z" that contains several numbers.
@@ -35,7 +35,7 @@ int	several_in_string(char *argv)
 		return (0);
 }
 
-/* is_sign
+/* valid_sign
 
 Description: Function that detects if the text found starts with a valid single 
 sign. Either '-' or '+'. These can only be found once.
@@ -121,6 +121,37 @@ int	filling_zeros(char *argv)
 		return (1);
 	return (0);
 }
+
+/* not_digits
+
+Description: Function that, in the case of not having filling zeros, analyses if
+there is a character that is not a number, being an invalid data.
+
+Arguments: Takes an element from the arguments given by keyboard(*argv[]).
+Taken as granted that each element is already separated.
+
+Return: 1 or 0.
+Gives you 1 if there is a character that is not a digit in the element.
+For example: -+af20, 45o4, +55l6, ljlfd. Or if it has filling_zeros.
+Gives you 0 if there all the characters are digits. */
+
+int	not_digits(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (valid_sign(argv))
+		i++;
+	if (argv[i] != '0')
+	{
+		while (ft_isdigit(argv[i]))
+			i++;
+		if (argv[i] == '\0')
+			return (0);
+	}
+	return (1);
+}
+//VER SI DEBERIA SER ROBUSTO CON RESPECTO A LOS FILLING_ZEROS ESTE TAMBIÉN
 
 
 
