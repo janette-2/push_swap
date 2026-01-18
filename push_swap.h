@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 18:39:27 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:07:15 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ typedef struct s_stack
 /* Check_Data */
 int		several_in_string(char *argv);
 int		valid_sign(char *argv);
+int		zero_equivalents(char *argv);
+int		filling_zeros(char *argv);
 
 /* Utils */
 

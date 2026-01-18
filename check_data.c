@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 18:47:23 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 20:16:22 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,57 @@ int	valid_sign(char *argv)
 Description: Function that detects all the different variations of zero,
 which are: 0, -0, +0, 000, -000000, +00000000.
 
-Arguments: */
+Arguments: Takes an element from the arguments given by keyboard(*argv[]).
+Taken as granted that each element is already separated.
+
+Returns: 1 or 0.
+If it returns 1, it means that the element found matches any of 
+the variations of zero. If it returns 0, means that the element
+found is not a zero.*/
+
+int	zero_equivalents(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (valid_sign(argv))
+		i++;
+	while (argv[i] == '0')
+		i++;
+	if (!argv[i])
+		return (1);
+	return (0);
+}
+
+/* filling_zeros
+
+Description: Function that jumps all the in between zeros that are not
+interpreted followed by a valid number.
+
+Arguments: Takes an element from the arguments given by keyboard(*argv[]).
+Taken as granted that each element is already separated.
+
+Returns: 1 or 0.
+Gives you 1 if there is a valid number after all the preceding zeros found.
+Gives you 0 if there is invalid data or an equivalent of zero.*/
+
+int	filling_zeros(char *argv)
+{
+	int	i;
+
+	i = 0;
+	if (valid_sign(argv))
+		i++;
+	while (argv[i] == '0')
+		i++;
+	while (ft_isdigit(argv[i]))
+		i++;
+	if (argv[i] == '\0')
+		return (1);
+	return (0);
+}
+
+
 
 // LIBFT: Añadir ft_memchr y ft_strlen
 
