@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 17:37:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 18:47:23 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,33 @@ Returns: 1 or 0.
 If the function returns 1, it would mean that it has detected that the elements
 starts by a single sign and has a number after it.
 It it returns 0, it would mean that we have one of these invalid cases:
-+, -, ++1, +-0, ---0a */
++, -, ++1, +-0, ---0a, -15+6 */
 
 int	valid_sign(char *argv)
 {
-	if ((argv[0] == '-' || argv[0] == '+') && ft_isdigit(argv[1]) != 0)
-		return (1);
-	else
-		return (0);
+	int	i;
+
+	i = 0;
+	if ((argv[i] == '-' || argv[i] == '+') && argv[i + 1])
+	{
+		i++;
+		while (ft_isdigit(argv[i]))
+		{
+			i++;
+			if (argv[i] == '\0')
+				return (1);
+		}
+	}
+	return (0);
 }
+
+
+/* zero_equivalents
+
+Description: Function that detects all the different variations of zero,
+which are: 0, -0, +0, 000, -000000, +00000000.
+
+Arguments: */
 
 // LIBFT: Añadir ft_memchr y ft_strlen
 
