@@ -1,24 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/17 13:34:57 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 14:11:00 by janrodri         ###   ########.fr       */
+/*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
+/*   Updated: 2026/01/18 14:02:59 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+size_t	ft_strlen(const char *s)
 {
-	if (argc == 1)
-		return (0);
-	int	string = several_in_string(argv[1]);
-	printf("Hay elementos en string?\n 0 - no, 1 - si : %d\n", string);
+	int	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
 }
-/* Como es un programa, cada vez que haces algún cambio, tienes
-que volver a compilar el archivo (para pruebas sin el Makefile) y
-después de hacerle cc [ddd.c] lo ejecutas con: ./a.out [datos] */
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*source;
+	size_t			i;
+	unsigned char	car;
+
+	source = (unsigned char *)s;
+	car = (unsigned char)c;
+	i = 0;
+	while (i < n)
+	{
+		if (source[i] == car)
+			return (&source[i]);
+		i++;
+	}
+	source = NULL;
+	return (source);
+}
+

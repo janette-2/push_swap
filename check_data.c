@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/17 15:17:15 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/18 14:08:38 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,28 @@ If it is 0, it means that the value given is a block of numbers in a string.
 
 */
 
-int	is_single_number(char *argv)
+int	several_in_string(char *argv)
 {
-	
+	if (ft_memchr(argv, ' ', ft_strlen(argv)))
+		return (1);
+	else
+		return (0);
 }
 
-// SHROTCUT COMMENTS: Truco para comentar una única linea (o selección de varias): presionar ctrl +k y ctrl + c 
+// LIBFT: Añadir ft_memchr y ft_strlen
+
+
+// SHROTCUT COMMENTS: Truco para comentar una única linea 
+// (o selección de varias): presionar ctrl +k y ctrl + c 
 // Para descomentar sería ctrl + k y ctrl + u . 
 // Para bloques también puede usar shift + alt + a
 
-// FINAL *ARGV[]: Para identificar el final de los argumentos que ha recopilado main *argv[]
+// FINAL *ARGV[]: Para identificar el final 
+// de los argumentos que ha recopilado main *argv[]
 // acaba siempre con NULL.
 
 // BASH QUOTING: Ten en cuenta que cuando se pasa una string por *argv[] cuando
 // vayas a leer el primer char de esa string, aunque se identifiquen con "" o ''
-// estos se interpretan como caracteres especiales de especificación de formato. 
-// NO VERÁS COMO char[0] = " PORQUE ES UNA CONVERSIÓN INTRÍNSECA A FORMATOS DE DATOS 
-// (ver en Quoting del man bash)
+// estos se interpretan como caracteres especiales de especificación de formato.
+// NO VERÁS COMO char[0] = " PORQUE ES UNA CONVERSIÓN INTRÍNSECA A 
+// FORMATOS DE DATOS (ver en Quoting del man bash)
