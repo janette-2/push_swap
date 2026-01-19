@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 20:35:18 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/19 19:34:45 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,10 @@ int		valid_sign(char *argv);
 int		zero_equivalents(char *argv);
 int		filling_zeros(char *argv);
 int		not_digits(char *argv);
+
+/* Separate Data */
+
+char	**separated_argv(char *argv);
 
 /* Utils */
 
