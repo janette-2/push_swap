@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/22 20:37:28 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/23 19:06:28 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,3 +38,25 @@ t_stack	*stack_new(int value)
 	new->next = NULL;
 	return (new);
 }
+
+
+/* clear_stack
+
+Description: 
+
+Arguments:
+
+Returns:  */
+
+void	clear_stack(t_stack *stack)
+{
+	t_stack	*temp;
+
+	while (stack->next != NULL)
+	{
+		temp = stack->next;
+		free(stack);
+		stack = temp;
+	}
+}
+
