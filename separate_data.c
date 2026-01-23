@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/23 19:51:12 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/23 20:47:14 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,3 +50,6 @@ primero si es un dato válido. Si lo es, ya lo convertimos a int, a su equivalen
 es un cero a normalizar, y lo metemos en el stack. 
 
 Si detectamos que no es válido, podemos ya salir de la ejecución.*/
+
+
+// REVISAR LUEGO EN TODO LA CONDICIÓN DE SI LE METES UN DATO INVÁLIDO

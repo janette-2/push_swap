@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/23 19:51:00 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/23 20:14:17 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
 
 int	main(int argc, char *argv[])
 {
-	//int		n_digit;
+	t_stack	stack_a;
+	t_stack	stack_b;
 	char	**args;
 	int		i;
 
@@ -34,7 +35,7 @@ int	main(int argc, char *argv[])
 	i = 1;
 	while (argv[i])
 	{
-		if (!check_entry(argv[i]))
+		if (!check_entry(argv[i]) || have_duplicate(stack_a))
 		{
 			clear_stack(stack_a);
 			clear_stack(stack_b);
@@ -42,6 +43,7 @@ int	main(int argc, char *argv[])
 		}
 		i++;
 	}
+
 }
 /* Como es un programa, cada vez que haces algún cambio, tienes
 que volver a compilar el archivo (para pruebas sin el Makefile) y

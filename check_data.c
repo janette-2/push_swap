@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 20:44:18 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/23 20:21:01 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,10 @@ int	not_digits(char *argv)
 	}
 	return (1);
 }
+
+
+
+//ANALIZAR EL CASO EN EL QUE TE PASEN UN ÚNICO NÚMERO. QUÉ DEVUELVE?
 //VER SI DEBERIA SER ROBUSTO CON RESPECTO A LOS FILLING_ZEROS ESTE TAMBIÉN
 
 

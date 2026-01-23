@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/23 19:06:28 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/23 20:27:58 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,3 +60,24 @@ void	clear_stack(t_stack *stack)
 	}
 }
 
+/* have_duplicates 
+
+Description: Function that detects if there are numbers that are 
+repeated in the series.
+
+Arguments: Stack with valid numbers inside of its nodes.
+
+Returns: 1 or 0. If it returns 1 the function has detected that there are 
+duplicates inside. If it gives you 0, means that there are no repeated
+elements.*/
+
+int	have_duplicates(t_stack	*stack_a)
+{
+	t_stack	*temp;
+
+	temp = stack_a->next;
+	while (stack_a && temp->next != NULL)
+	{
+		if(ft_memcmpr(stack_a->value, temp->value))
+	}
+}
