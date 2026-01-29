@@ -6,34 +6,12 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/23 20:21:01 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/29 19:14:42 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* several_in_string
-
-Description: Function to detect if the values given are isolated numbers in each 
-string or it is an string starting with "x y  z" that contains several numbers.
-To do so, it checks if there are arguments separatedby spaces in the string. 
-
-Arguments: The function analyses an *argv[x] (pointer) 
-extracted from the main().
-
-Returns: 1 or 0. 
-If the function returns 1, it means that the data found is a single number.
-If it is 0, it means that the value given is a block of numbers in a string.  
-
-*/
-
-int	several_in_string(char *argv)
-{
-	if (ft_memchr(argv, ' ', ft_strlen(argv)))
-		return (1);
-	else
-		return (0);
-}
 
 /* valid_sign
 
@@ -65,7 +43,6 @@ int	valid_sign(char *argv)
 	}
 	return (0);
 }
-
 
 /* zero_equivalents
 
