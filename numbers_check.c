@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/29 22:15:48 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/30 23:24:12 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,17 +62,14 @@ is valid content.
 
 Returns: 1 or 0. Gives you 1 if there are duplicated elements.
 Gives 0 if there are none.
-
-COMPROBAR SI ELEMENTS ES LA CANTIDAD DE CHARS DENTRO DE LA STRING*/
+*/
 
 int	have_duplicates(char *conversion[])
 {
 	int	elements;
-	int	n_elemets;
 	int	i;
 
 	elements = nbr_elements(conversion);
-	n_elements = elements;
 	i = 0;
 	while (conversion[i + 1])
 	{
@@ -84,4 +81,3 @@ int	have_duplicates(char *conversion[])
 	}
 	return (0);
 }
-

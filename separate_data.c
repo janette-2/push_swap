@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/29 19:15:35 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/30 22:13:30 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@ int	several_in_string(char *argv)
 
 /* separated_argv
 
-Description:
+Description: Function that separates the elements grouped
+in a string from argv[]
 
-Arguments:
+Arguments: A single element of a string from the list of argv[] given
 
-Returns:
+Returns: The list of elements(strings) inside the original string 
 */
 
 char	**separated_argv(char *argv)
@@ -65,21 +66,30 @@ Arguments: The single elements passed by arguments, already separated if needed.
 Returns: 1 or 0. It returns 1 if it is valid.
 It returns 0 if the argument is invalid.*/
 
-int	check_entry(char *argv)
+int	check_entry(char *args[])
 {
-	if (not_digits(argv) || !valid_sign(argv))
-		return (0);
+	int	i;
+
+	i = 0;
+	while (args[i])
+	{
+		if (not_digits(args[i]) || !valid_sign(args[i]))
+			return (0);
+		i++;
+	}
 	return (1);
 }
 
 
 /* nbr_elements
 
-Description:
+Description: Function that counts the total of elements given in argv,
+whether they have been put in strings or on each own.
 
-Arguments:
+Arguments: The original list of arguments
 
-Returns:*/
+Returns: The number of total elements counted
+*/
 
 
 int	nbr_elements(char *argv[])
@@ -109,11 +119,13 @@ int	nbr_elements(char *argv[])
 
 /* new_argv
 
-Description:
+Description: Creation of a new list of strings with all the original arguments 
+properly separated in single elements. Detects if a separation is needed and 
+executes it. If it is not needed, it just copies the original argument.
 
-Arguments:
+Arguments: The original argv[]
 
-Returns:*/
+Returns: A new list with the elements in single indexes. */
 
 char	**new_argv(char *argv[])
 {

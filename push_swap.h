@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/23 17:57:22 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 00:49:01 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <unistd.h>
-//# include <limits.h>
+# include <limits.h>
 # include <stdio.h>
+# include "libft/libft.h"
 
 typedef struct s_stack
 {
@@ -31,18 +32,27 @@ typedef struct s_stack
 }	t_stack;
 
 /* Check_Data */
-int		several_in_string(char *argv);
 int		valid_sign(char *argv);
 int		zero_equivalents(char *argv);
 int		filling_zeros(char *argv);
 int		not_digits(char *argv);
 
-/* Separate Data */
+/* Numbers_Check */
+char	**numbers_conversion(char *argv[]);
+int		have_duplicates(char *conversion[]);
 
+/* Separate_Data */
+int		several_in_string(char *argv);
 char	**separated_argv(char *argv);
 int		check_entry(char *argv);
+int		nbr_elements(char *argv[]);
+char	**new_argv(char *argv[]);
 
-/* Utils */
+/* Stack */
+
+/* Init */
+
+/* Utils ¿	QUITARLO? SI YA ESTA EN */
 
 size_t	ft_strlen(const char *s);
 void	*ft_memchr(const void *s, int c, size_t n);
