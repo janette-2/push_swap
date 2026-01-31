@@ -6,45 +6,33 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/18 17:29:40 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:19:42 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-size_t	ft_strlen(const char *s)
+/* clean_error
+
+Description: Function that cleans the stack lists created in the program,
+writes in terminal an error message anc closes all the standard streams opened.
+
+Arguments: The stacks that the program manipulates, stack_a and stack_b
+
+Returns: Nothing, just executes the cleaning, informs of the status
+and exits the program.
+
+*/
+
+void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args)
 {
-	int	i;
-
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	return (i);
-}
-
-void	*ft_memchr(const void *s, int c, size_t n)
-{
-	unsigned char	*source;
-	size_t			i;
-	unsigned char	car;
-
-	source = (unsigned char *)s;
-	car = (unsigned char)c;
-	i = 0;
-	while (i < n)
+	if (stack_a || stack_b)
 	{
-		if (source[i] == car)
-			return (&source[i]);
-		i++;
+		clear_stack(stack_a);
+		clear_stack(stack_b);
 	}
-	source = NULL;
-	return (source);
-}
-
-int	ft_isdigit(int n)
-{
-	if ('0' <= n && n <= '9')
-		return (n);
-	return (0);
+	free(*args);
+	write(1, "Error\n", 6);
+	exit(1);
 }
 

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/31 01:29:03 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 18:23:21 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,11 +97,13 @@ int	get_stack_size(t_stack *stack)
 }
 /* stack_add_bottom
 
-Description: Function that aggregates a new node at the stack list at the end of the stack.
+Description: Function that aggregates a new node at 
+the stack list at the end of the stack.
 
-Arguments: The original head of the stack list to which we want to add a node at. 
-To do so, we use the address of the original to modify this one,
-not a local copy. Also, the new node we want to append to the stack.
+Arguments: The original head of the stack list to which we
+want to add a node at. To do so, we use the address of the
+original to modify this one, not a local copy. Also, the 
+new node we want to append to the stack.
 
 Returns: Nothing, it just executes the action.
 */
@@ -122,3 +124,4 @@ void	stack_add_bottom(t_stack **stack, t_stack *bottom)
 	temp->next = bottom;
 	bottom->next = NULL;
 }
+

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/30 23:24:12 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:33:58 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ char	**numbers_conversion(char *argv[])
 	while (argv[i])
 	{
 		if (zero_equivalents(argv[i]))
-			conversion[i++] = "0";
+			conversion[i] = "0";
 		else if (filling_zeros(argv[i]))
 		{
 			k = 0;
@@ -41,12 +41,13 @@ char	**numbers_conversion(char *argv[])
 			{
 				if (argv[i][k] == '0')
 					k++;
-				conversion[i][k] = argv[i][k++];
+				conversion[i][k] = argv[i][k];
+				k++;
 			}
-			i++;
 		}
 		else
-			conversion[i] = argv[i++];
+			conversion[i] = argv[i];
+		i++;
 	}
 	return (conversion);
 }

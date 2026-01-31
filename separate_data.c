@@ -6,12 +6,11 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/30 22:13:30 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:37:27 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "libft/libft.h"
 
 /* several_in_string
 
@@ -61,7 +60,7 @@ Description: Function that detects one by one, if each argument is valid.
 If the signs are valid, the range is inside the limits, and there are no 
 weird characters, it would be valid.
 
-Arguments: The single elements passed by arguments, already separated if needed.
+Arguments: The single elements passed by arguments, already separated.
 
 Returns: 1 or 0. It returns 1 if it is valid.
 It returns 0 if the argument is invalid.*/

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/30 23:29:00 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:18:38 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,31 @@
 
 int	main(int argc, char *argv[])
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	t_stack	*stack_a;
+	t_stack	*stack_b;
 	char	**args;
-	int		i;
+	//int		i;
 
 	if (argc == 1)
 		return (0);
-	//n_digit = not_digits(argv[1]);
-	args = separated_argv(argv[1]);
-	i = 0;
-	while (args[i])
-		printf("Elemento: \n%s\n", args[i++]);
-	// printf("Es un que contiene no-digitos?\n%d\n", n_digit);
-	printf("MINIMO: %d\n", INT_MIN);
-	printf("MAXIMO: %d\n", INT_MAX);
+	args = new_argv(argv);
+	if (!args)
+		return (0);
+	if (check_entry(args) == 0)
+		clean_error(&stack_a, &stack_b, &args);
+	args = numbers_conversion(args);
+	if (have_duplicates(args))
+		clean_error(&stack_a, &stack_b, &args);
+	stack_a = fill_stack(args);
 
-	
+	//PROBAR SI ESTÁN LOS VALORES DENTRO DE LA LISTA DE STACK
+	t_stack *temp;
+	temp = stack_a;
+	while (temp)
+	{
+		printf("Value: %d\n", temp->value);
+		temp = temp->next;
+	}
 }
 
 

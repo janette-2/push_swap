@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/31 00:49:01 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 19:18:07 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,23 @@ int		have_duplicates(char *conversion[]);
 /* Separate_Data */
 int		several_in_string(char *argv);
 char	**separated_argv(char *argv);
-int		check_entry(char *argv);
+int		check_entry(char *args[]);
 int		nbr_elements(char *argv[]);
 char	**new_argv(char *argv[]);
 
 /* Stack */
+t_stack	*stack_new(int value);
+t_stack	*get_stack_bottom(t_stack *stack);
+t_stack	*get_stack_before_bottom(t_stack *stack);
+int		get_stack_size(t_stack *stack);
+void	stack_add_bottom(t_stack **stack, t_stack *bottom);
 
-/* Init */
+/* Init (cambiar nombre aqui, en archivo y en Makefile) */
+t_stack	*fill_stack(char *args[]);
+void	clear_stack(t_stack **stack);
 
-/* Utils ¿	QUITARLO? SI YA ESTA EN */
+/* Utils */
+void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
 
-size_t	ft_strlen(const char *s);
-void	*ft_memchr(const void *s, int c, size_t n);
-int		ft_isdigit(int n);
 
 #endif
