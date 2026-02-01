@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/31 19:33:58 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/01/31 23:53:22 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,10 +67,10 @@ Gives 0 if there are none.
 
 int	have_duplicates(char *conversion[])
 {
-	int	elements;
+	// int	elements;
 	int	i;
 
-	elements = nbr_elements(conversion);
+	//elements = nbr_elements(conversion);
 	i = 0;
 	while (conversion[i + 1])
 	{

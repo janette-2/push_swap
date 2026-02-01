@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/31 19:18:38 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/01 14:04:53 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	main(int argc, char *argv[])
 		clean_error(&stack_a, &stack_b, &args);
 	stack_a = fill_stack(args);
 
-	//PROBAR SI ESTÁN LOS VALORES DENTRO DE LA LISTA DE STACK
+	//PROBAR LOS VALORES RECOGIDOS DENTRO DE LA LISTA DE STACK
 	t_stack *temp;
 	temp = stack_a;
 	while (temp)

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/29 19:14:42 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/01 12:49:48 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,12 @@ int	valid_sign(char *argv)
 
 	i = 0;
 	if ((argv[i] == '-' || argv[i] == '+') && argv[i + 1])
+		i++;
+	while (ft_isdigit(argv[i]))
 	{
 		i++;
-		while (ft_isdigit(argv[i]))
-		{
-			i++;
-			if (argv[i] == '\0')
-				return (1);
-		}
+		if (argv[i] == '\0')
+			return (1);
 	}
 	return (0);
 }
@@ -62,7 +60,7 @@ int	zero_equivalents(char *argv)
 	int	i;
 
 	i = 0;
-	if (valid_sign(argv))
+	if (valid_sign(argv) && (argv[0] == '-' || argv[0] == '+'))
 		i++;
 	while (argv[i] == '0')
 		i++;
@@ -117,15 +115,12 @@ int	not_digits(char *argv)
 	int	i;
 
 	i = 0;
-	if (valid_sign(argv))
+	if (valid_sign(argv) && (argv[0] == '-' || argv[0] == '+'))
 		i++;
-	if (argv[i] != '0')
-	{
-		while (ft_isdigit(argv[i]))
-			i++;
-		if (argv[i] == '\0')
-			return (0);
-	}
+	while (ft_isdigit(argv[i]))
+		i++;
+	if (argv[i] == '\0')
+		return (0);
 	return (1);
 }
 
