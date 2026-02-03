@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/01 17:24:51 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 19:15:58 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,20 @@ limits. This step is necessary because ft_atoi doesn't checks this.
 
 Arguments: The cleaned string with the normlized numbers.
 
-Returns: 1 or 0. Gives 1 if all of the elements are inside the limits,
+Returns: 1 or 0. Gives 1 if any of the elements is inside the limits,
 gives you 0 if it doesn't.
 */
 
-int	limits_check(char *normalized[])
+int	limits_check(int *array)
 {
 	int	i;
 
 	i = 0;
-	while (normalized[i])
+	while (array[i])
 	{
-		if (ft_strncmp("-2147483648", normalized[i], 11) < 0)
+		if (nbr_cmp(-2147483648, array[i]) < 0)
 			return (0);
-		if (ft_strncmp("2147483647", normalized[i], 11) > 0)
+		if (nbr_cmp(2147483647, array[i]) > 0)
 			return (0);
 		i++;
 	}
@@ -89,6 +89,7 @@ If something fails returns NULL.
 char	**numbers_normalized(char *argv[])
 {
 	int		i;
+	int		k;
 	char	**normalized;
 
 	normalized = argv;
@@ -126,21 +127,20 @@ Returns: 1 or 0. Gives you 1 if there are duplicated elements.
 Gives 0 if there are none.
 */
 
-int	have_duplicates(char *normalized[])
+int	have_duplicates(int *array)
 {
 	int	elements;
 	int	i;
 	int	j;
 
-	elements = nbr_elements(normalized);
+	elements = nbr_array(array);
 	i = 0;
-	while (normalized[i + 1])
+	while (array[i + 1])
 	{
 		j = i + 1;
 		while (j != elements)
 		{
-			if (ft_strncmp(normalized[i], normalized[j],
-					ft_strlen(normalized[i])) != 0)
+			if (nbr_cmp(array[i], array[j]) != 0)
 				j++;
 			else
 				return (1);
@@ -148,4 +148,24 @@ int	have_duplicates(char *normalized[])
 		i++;
 	}
 	return (0);
+}
+
+
+/* nbr_cmp
+
+Description: Function that compares between two number, 
+gives a +int if the first one is bigger. An -int if the
+first one is minor. Gives 0 if the numbers are equal.
+
+Arguments: The numbers to be compared.
+
+Returns: The difference between the two numbers compared.
+*/
+
+int	nbr_cmp(int n1, int n2)
+{
+	int	result;
+
+	result = n1 - n2;
+	return (result);
 }

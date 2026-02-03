@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/01/31 18:36:59 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:52:14 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,18 @@ was a value that exceeded the limits of int, it would exit the function and
 won't create the stack, leaving it's value to NULL. 
 */
 
-t_stack	*fill_stack(char *args[])
+t_stack	*fill_stack(int *array)
 {
 	int		i;
-	int		element;
 	t_stack	*stack_head;
 	t_stack	*stack_element;
 
 	stack_head = NULL;
 	stack_element = NULL;
 	i = 0;
-	while (args[i])
+	while (array[i])
 	{
-		element = ft_atoi(args[i]);
-		if (element < INT_MIN || element > INT_MAX)
-			return (NULL);
-		stack_element = stack_new(element);
+		stack_element = stack_new(array[i]);
 		stack_add_bottom(&stack_head, stack_element);
 		if (i == 0)
 			stack_head = stack_element;

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/01 15:15:11 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/01 23:21:24 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_stack
 }	t_stack;
 
 /* Check_Data */
+int		empty_argv(char *argv[]);
 int		valid_sign(char *argv);
 int		zero_equivalents(char *argv);
 int		filling_zeros(char *argv);
@@ -40,8 +41,9 @@ int		not_digits(char *argv);
 /* Numbers_Check */
 char	*clear_filling_zeros(char *args);
 char	**numbers_normalized(char *args[]);
-int		limits_check(char *normalized[]);
-int		have_duplicates(char *conversion[]);
+int		limits_check(int *array);
+int		have_duplicates(int *array);
+int		nbr_cmp(int n1, int n2);
 
 /* Separate_Data */
 int		several_in_string(char *argv);
@@ -58,11 +60,12 @@ int		get_stack_size(t_stack *stack);
 void	stack_add_bottom(t_stack **stack, t_stack *bottom);
 
 /* Init (cambiar nombre aqui, en archivo y en Makefile) */
-t_stack	*fill_stack(char *args[]);
+t_stack	*fill_stack(int *array);
 void	clear_stack(t_stack **stack);
 
 /* Utils */
 void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
-
+int		*normalized_to_int(char *normalized[]);
+int		nbr_array(int *array);
 
 #endif

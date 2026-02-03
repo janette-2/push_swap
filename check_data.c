@@ -6,12 +6,42 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/01 15:09:16 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 18:50:38 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+/* empty_argv
+
+Description: Function that detects if there is an empty entry. If so,
+the program executes an error. 
+
+Arguments: The original list of arguments given in terminal.
+
+Returns: 1 or 0. Gives 1 if there is a string declared with
+empty spaces. Gives 0 if all the arguments declared as strings
+have content.
+*/
+
+int	empty_argv(char *argv[])
+{
+	int	i;
+	int	k;
+
+	i = 0;
+	while (argv[i])
+	{
+		k = 0;
+		while (argv[i][k] == ' ')
+			k++;
+		if (argv[i][k] == '\0')
+			return (1);
+		else
+			i++;
+	}
+	return (0);
+}
 
 /* valid_sign
 
@@ -31,6 +61,8 @@ int	valid_sign(char *argv)
 	int	i;
 
 	i = 0;
+	while (argv[i] == ' ')
+		i++;
 	if ((argv[i] == '-' || argv[i] == '+') && argv[i + 1])
 		i++;
 	while (ft_isdigit(argv[i]))
@@ -115,7 +147,9 @@ int	not_digits(char *argv)
 	int	i;
 
 	i = 0;
-	if (valid_sign(argv) && (argv[0] == '-' || argv[0] == '+'))
+	while (argv[i] == ' ')
+		i++;
+	if (valid_sign(&argv[i]) && (argv[i] == '-' || argv[i] == '+'))
 		i++;
 	while (ft_isdigit(argv[i]))
 		i++;
@@ -123,8 +157,6 @@ int	not_digits(char *argv)
 		return (0);
 	return (1);
 }
-
-
 
 //ANALIZAR EL CASO EN EL QUE TE PASEN UN ÚNICO NÚMERO. QUÉ DEVUELVE?
 //VER SI DEBERIA SER ROBUSTO CON RESPECTO A LOS FILLING_ZEROS ESTE TAMBIÉN
