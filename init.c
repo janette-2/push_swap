@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 21:31:33 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 23:27:15 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,21 +29,48 @@ t_stack	*fill_stack(char **normalized)
 	int		i;
 	t_stack	*stack_head;
 	t_stack	*stack_element;
-	long	norm_element;
+	int		value;
 
 	stack_head = NULL;
 	stack_element = NULL;
 	i = 0;
 	while (normalized[i])
 	{
-		norm_element = ft_atol(normalized[i]);
-		stack_element = stack_new(norm_element);
+		value = long_to_int_limits(normalized[i], &stack_head, &normalized);
+		stack_element = stack_new(value);
 		stack_add_bottom(&stack_head, stack_element);
 		if (i == 0)
 			stack_head = stack_element;
 		i++;
 	}
 	return (stack_head);
+}
+/* long_to_int_limits
+
+Description: Function that before converting the element of the normalized 
+array into the value of an stack, checks if it is inside the limits of int,
+turning it into long first, to also see that the extremes are valid. 
+Then converting into int if they fit the range. If they dont, the program
+exits its execution, printing 'Error' and cleaning the stack.
+
+Arguments: A normalized element in a string
+
+Returns: The number int if it's valid. An interruption of the
+execution of the program.
+*/
+
+int	long_to_int_limits(char *normalized_element, t_stack **stack_a,
+		char ***normalized)
+{
+	long	norm_element;
+	int		checked;
+
+	norm_element = ft_atol(normalized_element);
+	if ((norm_element >= -2147483648) && (norm_element <= 2147483647))
+		checked = (int) norm_element;
+	else
+		clean_error(stack_a, NULL, normalized);
+	return (checked);
 }
 
 /* clear_stack

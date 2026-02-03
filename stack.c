@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 21:18:08 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 22:04:49 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ firts value that would keep a node from the stack.
 Returns: The first node that would create the stack.
 */
 
-t_stack	*stack_new(long value)
+t_stack	*stack_new(int value)
 {
 	t_stack	*new;
 
@@ -40,7 +40,6 @@ t_stack	*stack_new(long value)
 	new->next = NULL;
 	return (new);
 }
-
 
 /* get_stack_bottom 
 

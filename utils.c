@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 21:30:54 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 23:19:10 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,35 +26,14 @@ and exits the program.
 
 void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args)
 {
-	if (stack_a || stack_b)
-	{
+	if (stack_a)
 		clear_stack(stack_a);
+	if (stack_b)
 		clear_stack(stack_b);
-	}
-	if (*args)
+	if (args && *args) //Puede que exista args y que sea NULL. Si haces un free(NULL) -> SEGMENTATION FAULT
 		free(*args);
 	write(1, "Error\n", 6);
 	exit(1);
-}
-
-/* normalized_to_int
-FALTA COMPROBAR LOS LIMITES DESPUES DE ESTO
-*/
-int	*normalized_to_int(char *normalized[])
-{
-	int	*array;
-	int	i;
-
-	array = (int *) malloc(nbr_elements(normalized) * sizeof(int));
-	if (!array)
-		return (NULL);
-	i = 0;
-	while (normalized[i])
-	{
-		array[i] = ft_atoi(normalized[i]);
-		i++;
-	}
-	return (array);
 }
 
 /* ft_atol
@@ -66,11 +45,11 @@ Arguments: The string to convert.
 
 Returns: The long number that equals the value of the string specified.*/
 
-long	ft_atol(const char *str)
+long int	ft_atol(const char *str)
 {
-	int		i;
-	int		minus;
-	long	result;
+	int			i;
+	int			minus;
+	long int	result;
 
 	i = 0;
 	minus = 0;

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 21:32:32 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 23:26:41 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,24 +53,24 @@ char	*clear_filling_zeros(char *args)
 {
 	char	*cleared;
 	int		i;
+	int		j;
 
 	i = 0;
+	j = 0;
 	cleared = malloc(ft_strlen(args) + 1);
 	if (!cleared)
 		return (NULL);
 	if (args[i] == '-' || args[i] == '+')
 	{
-		cleared[i] = args[i];
-		i++;
+		cleared[j++] = args[i++];
 	}
 	while (args[i] == '0')
 		i++;
 	while (args[i])
 	{
-		cleared[i] = args[i];
-		i++;
+		cleared[j++] = args[i++];
 	}
-	cleared[i] = '\0';
+	cleared[j] = '\0';
 	return (cleared);
 }
 
@@ -127,27 +127,28 @@ Gives 0 if there are none.
 ESTO QUE PASE A SER UNA COMPROBACIÓN SACANDO LOS VALORES YA METIDOS EN EL STACK A.
 */
 
-int	have_duplicates(int *array)
+void	have_duplicates(t_stack **stack)
 {
-	int	elements;
-	int	i;
-	int	j;
+	long	i;
+	long	j;
+	t_stack	*temp;
+	t_stack	*next;
 
-	elements = 0;
-	i = 0;
-	while (i + 1 != elements)
+	temp = (*stack);
+	while (temp)
 	{
-		j = i + 1;
-		while (j != elements)
+		i = temp->value;
+		next = temp->next;
+		while (next)
 		{
-			if (nbr_cmp(array[i], array[j]) != 0)
-				j++;
+			j = next->value;
+			if (nbr_cmp(i, j) != 0)
+				next = next->next;
 			else
-				return (1);
+				clean_error(stack, NULL, NULL);
 		}
-		i++;
+		temp = temp->next;
 	}
-	return (0);
 }
 
 
