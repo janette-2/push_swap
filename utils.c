@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 19:21:56 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 21:30:54 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,19 +57,38 @@ int	*normalized_to_int(char *normalized[])
 	return (array);
 }
 
-/* nbr_array */
+/* ft_atol
 
-int	nbr_array(int *array)
+Description: Function that converts a numbered expresed in string into
+a number with long format.
+
+Arguments: The string to convert.
+
+Returns: The long number that equals the value of the string specified.*/
+
+long	ft_atol(const char *str)
 {
-	int	i;
-	int	size;
+	int		i;
+	int		minus;
+	long	result;
 
 	i = 0;
-	size = 0;
-	while (array[i])
+	minus = 0;
+	while ((str[i] == ' ') || (str[i] >= 9 && str[i] <= 13))
+		i++;
+	if (str[i] == '-' || str[i] == '+')
 	{
-		size++;
+		if (str[i] == '-')
+			minus++;
 		i++;
 	}
-	return (size);
+	result = 0;
+	while (str[i] >= '0' && str[i] <= '9')
+	{
+		result = result * 10 + (str[i] - '0');
+		i++;
+	}
+	if (minus)
+		result = -result;
+	return (result);
 }

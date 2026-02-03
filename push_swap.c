@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 20:06:29 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 21:30:39 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,10 @@ int	main(int argc, char *argv[])
 	t_stack	*stack_a;
 	t_stack	*stack_b;
 	char	**args;
-	int		*array;
 
 	stack_a = NULL;
 	stack_b = NULL;
 	args = NULL;
-	array = NULL;
 	if (argc < 2)
 		return (0);
 	if (empty_argv(argv))
@@ -33,20 +31,21 @@ int	main(int argc, char *argv[])
 	if (check_entry(args) == 0)
 		clean_error(&stack_a, &stack_b, &args);
 	args = numbers_normalized(args);
+	stack_a = fill_stack(args); //HASTA ESTE PUNTO, TODO BIEN, VALORES COMO INTs, MENOS LOS DUPLICADOS Y LIMITES.
+	if (limits_check(stack_a) == 0)
+		clean_error(&stack_a, &stack_b, &args);
+	
 	//ADAPTAR A NUEVO NBR_CMP Y EL CLEAN_ERROR CON EL ARRAY
-	array = normalized_to_int(args);
-	if (!limits_check(array))
-		clean_error(&stack_a, &stack_b, &args);
-	if (have_duplicates(array))
-		clean_error(&stack_a, &stack_b, &args);
-	stack_a = fill_stack(array);
+	// if (have_duplicates(array))
+		// clean_error(&stack_a, &stack_b, &args);
+	// stack_a = fill_stack(array);
 	
 	//PROBAR LOS VALORES RECOGIDOS DENTRO DE LA LISTA DE STACK
 	t_stack *temp;
 	temp = stack_a;
 	while (temp)
 	{
-		printf("Value: %d\n", temp->value);
+		printf("Value: %ld\n", temp->value);
 		temp = temp->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 20:07:05 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 21:32:32 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,17 @@ Returns: 1 or 0. Gives 1 if any of the elements is inside the limits,
 gives you 0 if it doesn't.
 */
 
-int	limits_check(int *array)
+int	limits_check(t_stack *stack)
 {
-	int	i;
+	long	value_copy;
 
-	i = 0;
-	while (array[i])
+	while (stack)
 	{
-		if (nbr_cmp(-2147483648, array[i]) < 0)
+		value_copy = stack->value;
+		if ((value_copy >= -2147483648) && (value_copy <= 2147483647))
+			stack = stack->next;
+		else
 			return (0);
-		if (nbr_cmp(2147483647, array[i]) > 0)
-			return (0);
-		i++;
 	}
 	return (1);
 }
@@ -124,6 +123,8 @@ is valid content.
 
 Returns: 1 or 0. Gives you 1 if there are duplicated elements.
 Gives 0 if there are none.
+
+ESTO QUE PASE A SER UNA COMPROBACIÓN SACANDO LOS VALORES YA METIDOS EN EL STACK A.
 */
 
 int	have_duplicates(int *array)
@@ -132,9 +133,9 @@ int	have_duplicates(int *array)
 	int	i;
 	int	j;
 
-	elements = nbr_array(array);
+	elements = 0;
 	i = 0;
-	while (array[i + 1])
+	while (i + 1 != elements)
 	{
 		j = i + 1;
 		while (j != elements)
@@ -152,7 +153,7 @@ int	have_duplicates(int *array)
 
 /* nbr_cmp
 
-Description: Function that compares between two number, 
+Description: Function that compares between two numbers, 
 gives a +int if the first one is bigger. An -int if the
 first one is minor. Gives 0 if the numbers are equal.
 
