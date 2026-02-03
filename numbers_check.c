@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 19:15:58 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 20:07:05 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ If something fails returns NULL.
 char	**numbers_normalized(char *argv[])
 {
 	int		i;
-	int		k;
 	char	**normalized;
 
 	normalized = argv;

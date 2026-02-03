@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 19:18:11 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/03 20:06:29 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	main(int argc, char *argv[])
 		clean_error(&stack_a, &stack_b, &args);
 	if (have_duplicates(array))
 		clean_error(&stack_a, &stack_b, &args);
-	stack_a = fill_stack(args);
+	stack_a = fill_stack(array);
 	
 	//PROBAR LOS VALORES RECOGIDOS DENTRO DE LA LISTA DE STACK
 	t_stack *temp;
