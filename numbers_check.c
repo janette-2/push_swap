@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 23:26:41 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:56:29 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,12 @@ or with equivalents of zero into their simplified version.
 Arguments: The *argv[] with all the elements already separated and validated.
 
 Returns: A new array of strings with the conversions made.
-If something fails returns NULL.
+If something fails returns NULL. THE ARRAY OF STRINGS NEEDS TO BE FREED IN MAIN()
+
+** the "0" string, specified like that, is a .rodata (read only data)
+and that makes it a non-freeable value. So, to make sure you create the 
+space in memory assigned to that '0', so YOU CAN FREE IT LATER, just 
+assing the string with ft_strdup always.
 */
 
 char	**numbers_normalized(char *argv[])
@@ -90,25 +95,26 @@ char	**numbers_normalized(char *argv[])
 	int		i;
 	char	**normalized;
 
-	normalized = argv;
+	normalized = (char **) malloc((nbr_elements(argv) + 1) * sizeof(char *));
 	i = 0;
 	while (argv[i])
 	{
 		if (zero_equivalents(argv[i]))
-			normalized[i] = "0";
+			normalized[i] = ft_strdup("0");
 		else if (filling_zeros(argv[i]))
 		{
 			normalized[i] = clear_filling_zeros(argv[i]);
 			if (!normalized[i])
 			{
-				free(normalized);
+				free_string_array(&normalized);
 				return (NULL);
 			}
 		}
 		else
-			normalized[i] = argv[i];
+			normalized[i] = ft_strdup(argv[i]);
 		i++;
 	}
+	normalized[i] = NULL;
 	return (normalized);
 }
 
