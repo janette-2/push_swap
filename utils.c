@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/04 23:32:30 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/05 00:21:28 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,11 @@ void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args)
 	if (stack_b)
 		clear_stack(stack_b);
 	i = 0;
-	if (args && *args)
+	if (args || *args || (*args)[i])
 	{
 		while ((*args)[i])
 			free((*args)[i++]);
 		free(*args);
-		free(args);
 	}
 	write(1, "Error\n", 6);
 	exit(1);

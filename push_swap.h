@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/04 21:57:16 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/05 00:14:51 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,7 @@ void		stack_add_bottom(t_stack **stack, t_stack *bottom);
 /* Init (cambiar nombre aqui, en archivo y en Makefile) */
 t_stack		*fill_stack(char **normalized);
 void		clear_stack(t_stack **stack);
-int			long_to_int_limits(char *normalized_element, t_stack **stack_a,
-				char ***normalized);
+int			long_to_int_limits(char *normalized_element, t_stack **stack_a);
 
 /* Utils */
 void		clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
