@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/01 15:09:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:17:54 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,8 @@ int	several_in_string(char *argv)
 /* separated_argv
 
 Description: Function that separates the elements grouped
-in a string from argv[]
+in a string from argv[]. ft_split uses malloc, so content needs 
+to be freed.
 
 Arguments: A single element of a string from the list of argv[] given
 
@@ -144,27 +145,14 @@ char	**new_argv(char *argv[])
 			to_separate = separated_argv(argv[i]);
 			j = 0;
 			while (to_separate[j])
-				new[k++] = to_separate[j++];
+				new[k++] = ft_strdup(to_separate[j++]);
+			free_string_array(&to_separate);
 			i++;
 		}
 		else
-			new[k++] = argv[i++];
+			new[k++] = ft_strdup(argv[i++]);
 	}
 	new[k] = NULL;
 	return (new);
 }
 
-
-/* PROCEDIMIENTO PARA DETECTAR DATOS ERRÓNEOS:
-
-En vez de hacer dobles punteros y tenerlo todo en este array de strings para luego meterlo
-todo en el stack, vamos a ir directamente metiendo datos en el stack de una,
-
-Para ello, tenemos que idear una función que para cada argumento obtenido nos analice 
-primero si es un dato válido. Si lo es, ya lo convertimos a int, a su equivalente si 
-es un cero a normalizar, y lo metemos en el stack. 
-
-Si detectamos que no es válido, podemos ya salir de la ejecución.*/
-
-
-// REVISAR LUEGO EN TODO LA CONDICIÓN DE SI LE METES UN DATO INVÁLIDO

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 23:04:59 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/04 21:57:16 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ int			long_to_int_limits(char *normalized_element, t_stack **stack_a,
 /* Utils */
 void		clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
 long int	ft_atol(const char *str);
+void		free_string_array(char ***array);
 
 #endif

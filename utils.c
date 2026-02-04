@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/04 20:56:11 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/04 23:32:30 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,35 @@ long int	ft_atol(const char *str)
 	if (minus)
 		result = -result;
 	return (result);
+}
+
+/* free_string_array
+
+Description: Function to avoid the double ownership of the content that
+is refered to by a pointer. An array needs to have control over the memory 
+created after a pointer. So if you copy the address of a pointer to a string,
+you don't control or own the memory of the original content. Only it's pointer.
+To be able to fully free a variable you need to copy the entire content of an 
+original reference. And after that, free the references that are no longer
+useful. It's better to copy strings not by the address of its pointer but by 
+copying the entire string with ft_strdup.
+
+Arguments: A address of an array of strings (the original array 
+created with malloc) that needs to be freed. BUT the pointer to this
+array is a LOCAL variable--> you didn't create it with malloc --> NOT FREEABLE.
+Memory asignated byt the system, not you, which means, you CAN'T FREE IT.
+
+Returns: Nothing, only executes.
+*/
+
+void	free_string_array(char ***array)
+{
+	int	i;
+
+	i = 0;
+	if (!array || !(*array) || !(*array[i]))
+		return ;
+	while ((*array)[i])
+		free((*array)[i++]);
+	free(*array);
 }
