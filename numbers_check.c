@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/05 00:15:15 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 01:40:16 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,20 @@ each index of the array args.
 
 Returns: The value cleansed. Or NULL if there was an error
 when creating the new string due to a limited capacity in the memory. 
+
+Leaks: This function uses malloc, and doesn't free the content because
+it's meant to be used by another function. Once this other function
+finishes copying the content, and the program has served it's purpose,
+this calling function needs to free the string received. 
+
+This function receives the new_argv (ft_split, ft_strdup, malloc)
+returned array of strings. This array and its strings need to be freed
+after accomplishing it's purpose. If after its use in this step its 
+going to be needed after, or of it is only being read and not transformed,
+don't free it here. But if it doesn't, you can free it. IN THIS CASE, ONLY READS
+THE CONTENT POINTED TO BY THE DYNAMIC MALLOC, AS IT GETS TO A CHAR AND JUST 
+COPIES THE CONTENT, AS IT DOESN'T IMPLY POINTERS TO MEMORY LOCATIONS, 
+JUST A COPY OF A NATIVE DATA TYPE, IT DOESN'T PROVOKE MEMORY OWNERSHIP PROBLEMS.
 */
 char	*clear_filling_zeros(char *args)
 {
@@ -84,16 +98,29 @@ Arguments: The *argv[] with all the elements already separated and validated.
 Returns: A new array of strings with the conversions made.
 If something fails returns NULL. THE ARRAY OF STRINGS NEEDS TO BE FREED IN MAIN()
 
+Leaks: This creates an array of strings filled and created wit mallocs not 
+freed in the return of numbers_normalized(). The function/program that calls
+this array needs to take care of freeing its content once it has finished 
+its purpose or transformations.
+
+This functions drags an array of strings, and it's strings, (argv <- new_argv) 
+that are waiting to be freed after accomplishing it's function. In here, the
+content of this variable is only read, and after being passed to normalized,
+passing the ownership with ft_strdup, the original array of strings 
+could be freed. Remember: ft_strdup, ft_split, new_argv; all of them call
+malloc without addressing the respecting free(). 
+
 ** the "0" string, specified like that, is a .rodata (read only data)
 and that makes it a non-freeable value. So, to make sure you create the 
-space in memory assigned to that '0', so YOU CAN FREE IT LATER, just 
-assing the string with ft_strdup always.
+space in memory assigned to that '0' so YOU CAN FREE IT LATER, just always
+assing the string with ft_strdup.
 */
 
 char	**numbers_normalized(char *argv[])
 {
 	int		i;
 	char	**normalized;
+	char	*temp;
 
 	normalized = (char **) malloc((nbr_elements(argv) + 1) * sizeof(char *));
 	i = 0;
@@ -103,12 +130,11 @@ char	**numbers_normalized(char *argv[])
 			normalized[i] = ft_strdup("0");
 		else if (filling_zeros(argv[i]))
 		{
-			normalized[i] = clear_filling_zeros(argv[i]);
+			temp = clear_filling_zeros(argv[i]);
+			normalized[i] = ft_strdup(temp);
 			if (!normalized[i])
-			{
-				free_string_array(&normalized);
-				return (NULL);
-			}
+				return (free_string_array(&normalized), NULL);
+			free(temp);
 		}
 		else
 			normalized[i] = ft_strdup(argv[i]);
@@ -130,7 +156,12 @@ is valid content.
 Returns: 1 or 0. Gives you 1 if there are duplicated elements.
 Gives 0 if there are none.
 
-ESTO QUE PASE A SER UNA COMPROBACIÓN SACANDO LOS VALORES YA METIDOS EN EL STACK A.
+Leaks: Receives a memory location (pointer) to a stack, which
+has been created using stack_new. This implies using malloc, which
+has not been freed until stack finish it's transformation or purpose.
+In here, stack is only read, so the ownership of freeing the stack
+doesn't belong to this function. 
+
 */
 
 void	have_duplicates(t_stack **stack)

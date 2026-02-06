@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/05 00:14:51 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 00:30:05 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int			filling_zeros(char *argv);
 int			not_digits(char *argv);
 
 /* Numbers_Check */
-char		*clear_filling_zeros(char *args);
+char		*clear_filling_zeros(char *new_args);
 char		**numbers_normalized(char *args[]);
 int			limits_check(t_stack *stack);
 void		have_duplicates(t_stack **stack);

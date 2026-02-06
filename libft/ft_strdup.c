@@ -6,11 +6,15 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/05 16:38:26 by janrodri          #+#    #+#             */
-/*   Updated: 2025/10/22 18:19:43 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/05 23:29:05 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
+/* LEAKS --------
+The function that calls ft_strdup needs to free, after obtaining the 
+desired data, the string created by this function.*/
 
 char	*ft_strdup(const char *s)
 {

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/05 00:21:28 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/05 23:30:46 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,5 @@ void	free_string_array(char ***array)
 	while ((*array)[i])
 		free((*array)[i++]);
 	free(*array);
+	*array = NULL;
 }

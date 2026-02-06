@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/05 00:14:30 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 01:33:48 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,17 @@ Arguments: The list of strigns wiht the cleaned elements.
 Returns: The head of the stack list created with all of the elements. If there 
 was a value that exceeded the limits of int, it would exit the function and
 won't create the stack, leaving it's value to NULL. 
+
+Leaks: stack_new generates a node usign malloc, and reserves the
+next node with a stack_new, which requires a malloc too. The caller of 
+fill_stack needs to free the nodes and the nodes->next values to free
+the mallocs created.
+
+Receives an array of strings pending to be freed after serving
+its purpose. It is only read, so this function doesn't have the ownership
+to free it, but the caller of fill_stack needs to free normalized after 
+filling the stack. It has been dragging the malloc of all of these functions:
+new_argv<-ft_split<-ft_strdup<-clear_filling_zeros.
 */
 
 t_stack	*fill_stack(char **normalized)

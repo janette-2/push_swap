@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 23:41:57 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 01:47:52 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,31 +15,41 @@
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	t_stack	*stack_b;
+	//t_stack	*stack_b;
 	t_stack *temp;
-	char	**args;
+	char	**new;
+	char	**normalized;
 
 	stack_a = NULL;
-	stack_b = NULL;
-	args = NULL;
+	//stack_b = NULL;
+	new = NULL;
+	normalized = NULL;
 	if (argc < 2)
 		return (0);
 	if (empty_argv(argv))
-		clean_error(&stack_a, &stack_b, &args);
-	args = new_argv(argv);
-	if (!args)
-		return (0);
-	if (check_entry(args) == 0)
-		clean_error(&stack_a, &stack_b, &args);
-	args = numbers_normalized(args);
-	stack_a = fill_stack(args); //HASTA ESTE PUNTO, TODO BIEN, VALORES COMO INTs, MENOS LOS DUPLICADOS Y LIMITES.
+		clean_error(NULL, NULL, NULL);
+	new = new_argv(argv); // falta por freesear array de strings: new
+	if (!new)
+		return (free_string_array(&new), 0);
+	if (check_entry(new) == 0) //no toma apropiacion de la liberacion de new porque solo la lee, y esta no ha cumplido su proposito aun, no debe liberarse aún, aún va a transformarse luego
+		clean_error(NULL, NULL, &new);
+	normalized = numbers_normalized(new);
+	if (!normalized)
+		return (free_string_array(&normalized), 0);
+	stack_a = fill_stack(normalized);
+	free_string_array(&new);
+	free_string_array(&normalized);
+	////TEST///
 	temp = stack_a;
 	while (temp)
 	{
 		printf("Value: %d\n", temp->value);
 		temp = temp->next;
 	}
+	//////////
 	have_duplicates(&stack_a);
+	//-----------FINAL-------
+	clear_stack(&stack_a);
 	//ADAPTAR A NUEVO NBR_CMP Y EL CLEAN_ERROR CON EL ARRAY
 	// if (have_duplicates(array))
 		// clean_error(&stack_a, &stack_b, &args);

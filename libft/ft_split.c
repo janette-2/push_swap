@@ -37,6 +37,7 @@ static char	*word_copy(char const *s, char c)
 {
 	int		letters;
 	char	*word;
+	char	*copy;
 	int		i;
 
 	letters = 0;
@@ -66,6 +67,9 @@ static char	**split_clear(char **split, int i)
 	return (NULL);
 }
 
+/* LEAKS --------
+The function that calls ft_split needs to free, after obtaining the desired data,
+the array of strings and each string inside of it.*/
 char	**ft_split(char const *s, char c)
 {
 	int		i;
