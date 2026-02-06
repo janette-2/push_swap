@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 20:59:02 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:06:31 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ int	main(int argc, char *argv[])
 		return (0);
 	if (empty_argv(argv))
 		clean_error(NULL, NULL, NULL);
-	new = new_argv(argv); // falta por freesear array de strings: new
+	new = new_argv(argv);
 	if (!new)
 		return (free_string_array(&new), 0);
-	if (check_entry(new) == 0) //no toma apropiacion de la liberacion de new porque solo la lee, y esta no ha cumplido su proposito aun, no debe liberarse aún, aún va a transformarse luego
+	if (check_entry(new) == 0)
 		clean_error(NULL, NULL, &new);
 	printf("nbr_elements: %d", nbr_elements(new));
 	normalized = numbers_normalized(new);
