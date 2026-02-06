@@ -6,11 +6,13 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 21:20:04 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 22:04:18 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:33:54 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//ABORDAR EL CASO DE QUE SE PASE SÓLO 1 ARGUMENTO (no hacer nada, salir del programa)
 
 /* swap_a
 
@@ -25,7 +27,7 @@ Leaks: The caller of this function, after completing its purpose,
 needs to manage the free of the allocated memory that carries stack a.
 */
 
-t_stack	*swap_a(t_stack *stack)
+t_stack	*swap(t_stack *stack)
 {
 	int		temp0;
 	int		temp1;
