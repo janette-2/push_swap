@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 21:06:31 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:07:55 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,32 +65,6 @@ int	main(int argc, char *argv[])
 	// 	temp = temp->next;
 	// }
 }
-
-
-/* 
-	//Primero separar en elementos separados o copiarlos si ya existen.
-	args =  new_argv(argv);
-	// Comprobar si los datos metidos tienen chars inválidos
-	if (check_entry(args) == 0)
-	{
-		//CLEAN THE MEMORY USED / STACKS / CONTENT / args /
-		// / memory and elements created in the program
-		write(1, "Error\n", 6);
-		exit(1); //Esto cierra streams (flujos de fd estandar y fd abiertos) 
-		// y ejecuta atexit() si hay. Luego cierra programa.
-	}
-	//Tercero, comprobar si los numeros tras normalizarse se repiten
-	args = numbers_conversion(args);
-	if (have_duplicates(args))
-	{
-		//CLEAN THE MEMORY USED / STACKS / CONTENT / args /
-		// / memory and elements created in the program
-		write(1, "Error\n", 6);
-		exit(1) //HACER FUNCIÓN DE INFO DE ERROR, LIMPIEZA Y SALIDA
-	}
-	
-		
-			 */
 
 
 /* Como es un programa, cada vez que haces algún cambio, tienes
