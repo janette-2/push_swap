@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 01:33:48 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:45:40 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ its purpose. It is only read, so this function doesn't have the ownership
 to free it, but the caller of fill_stack needs to free normalized after 
 filling the stack. It has been dragging the malloc of all of these functions:
 new_argv<-ft_split<-ft_strdup<-clear_filling_zeros.
+
+Leaks: This function passes the ownership to the caller, so once you
+invoke this function, and after transforming or modifying the stack,
+after it serves it's purpose, needs to be freed. The head and the
+linked next nodes. 
 */
 
 t_stack	*fill_stack(char **normalized)

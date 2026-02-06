@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/05 23:30:46 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 19:38:12 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ void	free_string_array(char ***array)
 	int	i;
 
 	i = 0;
-	if (!array || !(*array) || !(*array[i]))
+	if (!array || !(*array) || !(*array)[i])
 		return ;
 	while ((*array)[i])
 		free((*array)[i++]);

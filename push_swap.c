@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 01:47:52 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:59:02 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,9 @@ int	main(int argc, char *argv[])
 		return (free_string_array(&new), 0);
 	if (check_entry(new) == 0) //no toma apropiacion de la liberacion de new porque solo la lee, y esta no ha cumplido su proposito aun, no debe liberarse aún, aún va a transformarse luego
 		clean_error(NULL, NULL, &new);
+	printf("nbr_elements: %d", nbr_elements(new));
 	normalized = numbers_normalized(new);
+	printf("nbr_elements: %d\n", nbr_elements(normalized));
 	if (!normalized)
 		return (free_string_array(&normalized), 0);
 	stack_a = fill_stack(normalized);

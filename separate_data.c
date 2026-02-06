@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 01:19:35 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:05:06 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,21 +112,23 @@ int	nbr_elements(char *argv[])
 	char	**to_separate;
 
 	count = 0;
-	i = 1;
+	i = 0;
 	while (argv[i])
 	{
 		if (several_in_string(argv[i]))
 		{
 			to_separate = separated_argv(argv[i]);
+			if (!to_separate)
+				free_string_array(&to_separate);
 			j = 0;
 			while (to_separate[j++])
 				count++;
+			free_string_array(&to_separate);
 		}
 		else
 			count++;
 		i++;
 	}
-	free_string_array(&to_separate);
 	return (count);
 }
 
@@ -149,7 +151,11 @@ This function also calls separated_argv <- ft_split, which is dragging mallocs
 for the array of strings and the strings inside of it created with ft_split.
 So, after obtaining the desired info, and stopping on dragging the 
 transformations of this array of strings, the final array and its content
-needs to be freed.*/
+needs to be freed.
+
+** The new array of strings will copy total - 1 elements from argv,
+because argv includes the name of the program. So to calculate the number
+of element, we pass the array argv moved by 1 position (argv++) */
 
 char	**new_argv(char *argv[])
 {
@@ -159,7 +165,7 @@ char	**new_argv(char *argv[])
 	int		j;
 	int		k;
 
-	new = (char **)malloc((nbr_elements(argv) + 1) * sizeof(char *));
+	new = (char **)malloc((nbr_elements(argv++) + 1) * sizeof(char *));
 	i = 1;
 	k = 0;
 	while (argv[i])

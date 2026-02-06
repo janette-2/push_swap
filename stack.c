@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 22:04:49 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:43:18 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,9 @@ Arguments: To create a stack you need at least the
 firts value that would keep a node from the stack.
 
 Returns: The first node that would create the stack.
+
+Leaks: This function passes the responsability
+of freeing the malloc reserved to the caller. 
 */
 
 t_stack	*stack_new(int value)
