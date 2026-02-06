@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 20:43:18 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:18:25 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	stack_add_bottom(t_stack **stack, t_stack *bottom)
 
 	if (!bottom)
 		return ;
-	if (!*stack)
+	if (!(*stack))
 	{
 		*stack = bottom;
 		(*stack)->next = NULL;

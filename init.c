@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 20:45:40 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:21:33 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,9 @@ t_stack	*fill_stack(char **normalized)
 	i = 0;
 	while (normalized[i])
 	{
-		value = long_to_int_limits(normalized[i], &stack_head);
+		value = long_to_int_limits(normalized[i]);
 		stack_element = stack_new(value);
 		stack_add_bottom(&stack_head, stack_element);
-		if (i == 0)
-			stack_head = stack_element;
 		i++;
 	}
 	return (stack_head);
@@ -75,7 +73,7 @@ Returns: The number int if it's valid. An interruption of the
 execution of the program.
 */
 
-int	long_to_int_limits(char *normalized_element, t_stack **stack_a)
+int	long_to_int_limits(char *normalized_element)
 {
 	long	norm_element;
 	int		checked;
@@ -85,7 +83,6 @@ int	long_to_int_limits(char *normalized_element, t_stack **stack_a)
 		checked = (int) norm_element;
 	else
 	{
-		clear_stack(stack_a);
 		write(1, "Error\n", 6);
 		exit(1);
 	}

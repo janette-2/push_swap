@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 21:07:55 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:08:42 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int	main(int argc, char *argv[])
 	stack_a = fill_stack(normalized);
 	free_string_array(&new);
 	free_string_array(&normalized);
+	have_duplicates(&stack_a);
 	////TEST///
+	stack_a = swap_a(stack_a);
 	temp = stack_a;
 	while (temp)
 	{
@@ -49,7 +51,6 @@ int	main(int argc, char *argv[])
 		temp = temp->next;
 	}
 	//////////
-	have_duplicates(&stack_a);
 	//-----------FINAL-------
 	clear_stack(&stack_a);
 	//ADAPTAR A NUEVO NBR_CMP Y EL CLEAN_ERROR CON EL ARRAY
@@ -64,8 +65,21 @@ int	main(int argc, char *argv[])
 	// 	printf("Value: %d\n", temp->value);
 	// 	temp = temp->next;
 	// }
-}
+} 
 
+/* int	main(int argc, char *argv[])
+{
+	(void) argc;
+	t_stack	*swap_a;
+
+	swap_a = fill_stack(argv++);
+	while (swap_a->next)
+	{
+		printf("Value: %d\n", swap_a->value);
+		swap_a = swap_a->next;
+	}
+	return (0);
+} */
 
 /* Como es un programa, cada vez que haces algún cambio, tienes
 que volver a compilar el archivo (para pruebas sin el Makefile) y

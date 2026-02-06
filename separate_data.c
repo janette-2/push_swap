@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 21:05:06 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:31:42 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,8 +118,6 @@ int	nbr_elements(char *argv[])
 		if (several_in_string(argv[i]))
 		{
 			to_separate = separated_argv(argv[i]);
-			if (!to_separate)
-				free_string_array(&to_separate);
 			j = 0;
 			while (to_separate[j++])
 				count++;
@@ -166,7 +164,7 @@ char	**new_argv(char *argv[])
 	int		k;
 
 	new = (char **)malloc((nbr_elements(argv++) + 1) * sizeof(char *));
-	i = 1;
+	i = 0;
 	k = 0;
 	while (argv[i])
 	{

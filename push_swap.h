@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 00:30:05 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:14:30 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,14 @@ void		stack_add_bottom(t_stack **stack, t_stack *bottom);
 /* Init (cambiar nombre aqui, en archivo y en Makefile) */
 t_stack		*fill_stack(char **normalized);
 void		clear_stack(t_stack **stack);
-int			long_to_int_limits(char *normalized_element, t_stack **stack_a);
+int			long_to_int_limits(char *normalized_element);
 
 /* Utils */
 void		clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
 long int	ft_atol(const char *str);
 void		free_string_array(char ***array);
+
+/* Movements */
+t_stack		*swap_a(t_stack *stack);
 
 #endif
