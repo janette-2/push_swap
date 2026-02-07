@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 22:34:16 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/07 19:11:32 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,6 @@ void		free_string_array(char ***array);
 
 /* Movements */
 t_stack		*swap(t_stack *stack);
+void		ss(t_stack *stack1, t_stack *stack2);
 
 #endif
