@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 21:20:04 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 19:58:03 by janrodri         ###   ########.fr       */
+/*   Created: 2026/02/08 00:09:41 by janrodri          #+#    #+#             */
+/*   Updated: 2026/02/10 20:28:30 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* swap_a
+/* rotate
 
-Decription: Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one element or none.
+Description: Moves the first element of the nodes pointed to by the **stack
+head reference to the bottom. Moving all of the remaining, a position further.
 
 Arguments: The reference to access the original stack. We need to be able to 
 modify the actual pointer to the first element and arrange the nodes, we use
@@ -24,35 +24,21 @@ of this function.
 
 Returns: Nothing, just executes the action. Checks if there is no content,
 if there is no pointer to the head of the stack or if there is only 1 element,
-if so, the program stops its execution. 
+if so, the program stops its execution
 */
 
-void	swap(t_stack **stack)
+void	rotate(t_stack **stack)
 {
-	t_stack	*first;
+	t_stack	*head;
 	t_stack	*second;
-	t_stack	*third;
+	t_stack	*bottom;
 
 	if (!stack || !(*stack) || !(*stack)->next)
-		exit(1);
-	first = *stack;
+		return ;
+	head = *stack;
 	second = (*stack)->next;
-	third = ((*stack)->next)->next;
-	second->next = first;
-	first->next = third;
+	bottom = get_stack_bottom(*stack);
+	bottom->next = head;
+	head->next = NULL;
 	*stack = second;
 }
-/* 
-int	main(int argc, char *argv[])
-{
-	(void) argc;
-	t_stack	*swap_a;
-
-	swap_a = fill_stack(argv++);
-	while (swap_a->next)
-	{
-		printf("Value: %d\n", swap_a->value);
-		swap_a = swap_a->next;
-	}
-	return (0);
-} */

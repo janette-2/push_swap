@@ -1,21 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 21:20:04 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 19:58:03 by janrodri         ###   ########.fr       */
+/*   Created: 2026/02/09 22:03:34 by janrodri          #+#    #+#             */
+/*   Updated: 2026/02/10 19:31:44 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* swap_a
+/* reverse_rotate
 
-Decription: Swap the first 2 elements at the top of stack a.
-Do nothing if there is only one element or none.
+Description: Moves the last node of the stack to the head. Moving all the
+in between node on position under. We use a pointer to the original stack
+to modify the content inside but not lose the reference of the head, therefore,
+a pointer that is the access to the new order of the nodes.
 
 Arguments: The reference to access the original stack. We need to be able to 
 modify the actual pointer to the first element and arrange the nodes, we use
@@ -24,35 +26,20 @@ of this function.
 
 Returns: Nothing, just executes the action. Checks if there is no content,
 if there is no pointer to the head of the stack or if there is only 1 element,
-if so, the program stops its execution. 
+if so, the program stops its execution.
+
 */
 
-void	swap(t_stack **stack)
+void	reverse_rotate(t_stack **stack)
 {
-	t_stack	*first;
-	t_stack	*second;
-	t_stack	*third;
+	t_stack	*bottom;
+	t_stack	*before_bottom;
 
 	if (!stack || !(*stack) || !(*stack)->next)
-		exit(1);
-	first = *stack;
-	second = (*stack)->next;
-	third = ((*stack)->next)->next;
-	second->next = first;
-	first->next = third;
-	*stack = second;
+		return ;
+	bottom = get_stack_bottom(*stack);
+	before_bottom = get_stack_before_bottom(*stack);
+	bottom->next = *stack;
+	before_bottom->next = NULL;
+	*stack = bottom;
 }
-/* 
-int	main(int argc, char *argv[])
-{
-	(void) argc;
-	t_stack	*swap_a;
-
-	swap_a = fill_stack(argv++);
-	while (swap_a->next)
-	{
-		printf("Value: %d\n", swap_a->value);
-		swap_a = swap_a->next;
-	}
-	return (0);
-} */

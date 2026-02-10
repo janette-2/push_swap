@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 22:08:42 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/10 21:00:38 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
-	//t_stack	*stack_b;
+	t_stack	*stack_b;
 	t_stack *temp;
+	t_stack *temp1;
 	char	**new;
 	char	**normalized;
 
 	stack_a = NULL;
-	//stack_b = NULL;
+	stack_b = NULL;
 	new = NULL;
 	normalized = NULL;
 	if (argc < 2)
@@ -33,7 +34,7 @@ int	main(int argc, char *argv[])
 		return (free_string_array(&new), 0);
 	if (check_entry(new) == 0)
 		clean_error(NULL, NULL, &new);
-	printf("nbr_elements: %d", nbr_elements(new));
+	printf("nbr_elements: %d\n", nbr_elements(new));
 	normalized = numbers_normalized(new);
 	printf("nbr_elements: %d\n", nbr_elements(normalized));
 	if (!normalized)
@@ -43,16 +44,24 @@ int	main(int argc, char *argv[])
 	free_string_array(&normalized);
 	have_duplicates(&stack_a);
 	////TEST///
-	stack_a = swap_a(stack_a);
+	push(&stack_a, &stack_b);
+	push(&stack_a, &stack_b);
 	temp = stack_a;
 	while (temp)
 	{
-		printf("Value: %d\n", temp->value);
+		printf("Value A: %d\n", temp->value);
 		temp = temp->next;
+	}
+	temp1 = stack_b;
+	while (temp1)
+	{
+		printf("Value B: %d\n", temp1->value);
+		temp1 = temp1->next;
 	}
 	//////////
 	//-----------FINAL-------
 	clear_stack(&stack_a);
+	clear_stack(&stack_b);
 	//ADAPTAR A NUEVO NBR_CMP Y EL CLEAN_ERROR CON EL ARRAY
 	// if (have_duplicates(array))
 		// clean_error(&stack_a, &stack_b, &args);
@@ -65,7 +74,8 @@ int	main(int argc, char *argv[])
 	// 	printf("Value: %d\n", temp->value);
 	// 	temp = temp->next;
 	// }
-} 
+}
+
 
 /* int	main(int argc, char *argv[])
 {
