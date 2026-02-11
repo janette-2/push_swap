@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 21:00:38 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/11 20:59:04 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	main(int argc, char *argv[])
 	t_stack *temp1;
 	char	**new;
 	char	**normalized;
+	//int index;
 
 	stack_a = NULL;
 	stack_b = NULL;
@@ -44,8 +45,8 @@ int	main(int argc, char *argv[])
 	free_string_array(&normalized);
 	have_duplicates(&stack_a);
 	////TEST///
-	push(&stack_a, &stack_b);
-	push(&stack_a, &stack_b);
+	//push(&stack_a, &stack_b);
+	//push(&stack_a, &stack_b);
 	temp = stack_a;
 	while (temp)
 	{
@@ -57,6 +58,14 @@ int	main(int argc, char *argv[])
 	{
 		printf("Value B: %d\n", temp1->value);
 		temp1 = temp1->next;
+	}
+	printf("\n\n");
+	fill_index(&stack_a);
+	temp = stack_a;
+	while (temp)
+	{
+		printf("Index A: %d\n", temp->index);
+		temp = temp->next;
 	}
 	//////////
 	//-----------FINAL-------

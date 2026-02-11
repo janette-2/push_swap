@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 22:21:33 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/11 20:57:56 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,3 +118,25 @@ void	clear_stack(t_stack **stack)
 	free(*stack);
 }
 
+/* fill_index
+
+Description: Goes through all the elements of the array assigning each
+element its index.
+
+Arguments: The original stack
+
+Returns : Nothing, just executes the action or exits if there is no
+content in the stack.
+*/
+
+void	fill_index(t_stack **stack)
+{
+	t_stack	*temp;
+
+	temp = *stack;
+	while (temp)
+	{
+		temp->index = assign_index(*stack, temp);
+		temp = temp->next;
+	}
+}

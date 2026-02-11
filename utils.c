@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 19:38:12 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/11 20:39:45 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,4 +115,34 @@ void	free_string_array(char ***array)
 		free((*array)[i++]);
 	free(*array);
 	*array = NULL;
+}
+
+/* assign_index
+
+Description: Function that takes the value of a node and compares its number 
+to the rest of numbers of the other nodes. Takes the number of elements that 
+are less to reflect the final index in the order.
+
+Arguments: The head of the stack, a copy of the original, because we 
+only want to read it. And the node of the stack for which we want the index.
+
+Returns: The final index of the node from the stack.
+ */
+
+int	assign_index(t_stack *stack_head, t_stack *stack_node)
+{
+	t_stack	*head;
+	int		index;
+	int		value;
+
+	index = 0;
+	head = stack_head;
+	value = stack_node->value;
+	while (head)
+	{
+		if (head->value < value)
+			index++;
+		head = head->next;
+	}
+	return (index);
 }

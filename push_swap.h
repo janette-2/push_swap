@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 20:10:31 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/11 20:47:52 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,13 @@ void		stack_add_bottom(t_stack **stack, t_stack *bottom);
 t_stack		*fill_stack(char **normalized);
 void		clear_stack(t_stack **stack);
 int			long_to_int_limits(char *normalized_element);
+void		fill_index(t_stack **stack);
 
 /* Utils */
 void		clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
 long int	ft_atol(const char *str);
 void		free_string_array(char ***array);
+int			assign_index(t_stack *stack_head, t_stack *stack_node);
 
 /* Movements */
 void		swap(t_stack **stack);
@@ -75,5 +77,6 @@ void		ss(t_stack **stack1, t_stack **stack2);
 void		rotate(t_stack **stack);
 void		reverse_rotate(t_stack **stack);
 void		push(t_stack **origin, t_stack **destiny);
+
 
 #endif

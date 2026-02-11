@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:27:02 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 20:59:45 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/10 23:15:32 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,3 @@ void	push(t_stack **origin, t_stack **destiny)
 	*destiny = origin_copy;
 	*origin = new_origin;
 }
-
