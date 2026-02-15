@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/11 20:47:52 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/15 01:18:49 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-	int				pos;
-	int				target_pos;
-	int				cost_a;
-	int				cost_b;
 	struct s_stack	*next;
 }	t_stack;
 
@@ -70,13 +66,31 @@ void		clean_error(t_stack **stack_a, t_stack **stack_b, char ***args);
 long int	ft_atol(const char *str);
 void		free_string_array(char ***array);
 int			assign_index(t_stack *stack_head, t_stack *stack_node);
+int			chunks(int size_stack);
 
 /* Movements */
 void		swap(t_stack **stack);
-void		ss(t_stack **stack1, t_stack **stack2);
+void		do_sa(t_stack **stack_a);
+void		do_sb(t_stack **stack_b);
+void		do_ss(t_stack **stack_a, t_stack **stack_b);
 void		rotate(t_stack **stack);
+void		do_ra(t_stack **stack_a);
+void		do_rb(t_stack **stack_b);
+void		do_rr(t_stack **stack_a, t_stack **stack_b);
 void		reverse_rotate(t_stack **stack);
+void		do_rra(t_stack **stack_a);
+void		do_rrb(t_stack **stack_b);
+void		do_rrr(t_stack **stack_a, t_stack **stack_b);
 void		push(t_stack **origin, t_stack **destiny);
+void		do_pb(t_stack **stack_a, t_stack **stack_b);
+void		do_pa(t_stack **stack_b, t_stack **stack_a);
+
+/* Sort_Chunks */
+void		sorting_chunks(t_stack **stack_a, t_stack **stack_b, int chunks);
+void		inside_chunk_range(t_stack **stack_a,
+				t_stack **stack_b, int low, int chunks);
+int			has_index_in_chunk(t_stack *stack_a, int low, int high);
+int			high_index(int chunks, int size, int i);
 
 
 #endif

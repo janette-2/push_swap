@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/09 22:03:34 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 19:31:44 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/14 22:16:47 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,23 @@ void	reverse_rotate(t_stack **stack)
 	bottom->next = *stack;
 	before_bottom->next = NULL;
 	*stack = bottom;
+}
+
+void	do_rra(t_stack **stack_a)
+{
+	reverse_rotate(stack_a);
+	write(1, "rra\n", 4);
+}
+
+void	do_rrb(t_stack **stack_b)
+{
+	reverse_rotate(stack_b);
+	write(1, "rrb\n", 4);
+}
+
+void	do_rrr(t_stack **stack_a, t_stack **stack_b)
+{
+	reverse_rotate(stack_a);
+	reverse_rotate(stack_b);
+	write(1, "rrr\n", 4);
 }

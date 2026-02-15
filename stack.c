@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/11 20:39:09 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/14 20:00:06 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ t_stack	*stack_new(int value)
 		return (NULL);
 	new->value = value;
 	new->index = -1;
-	new->pos = -1;
-	new->target_pos = -1;
 	new->next = NULL;
 	return (new);
 }

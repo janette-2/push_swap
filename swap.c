@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 21:20:04 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/10 19:58:03 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/14 22:16:47 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,17 +42,22 @@ void	swap(t_stack **stack)
 	first->next = third;
 	*stack = second;
 }
-/* 
-int	main(int argc, char *argv[])
-{
-	(void) argc;
-	t_stack	*swap_a;
 
-	swap_a = fill_stack(argv++);
-	while (swap_a->next)
-	{
-		printf("Value: %d\n", swap_a->value);
-		swap_a = swap_a->next;
-	}
-	return (0);
-} */
+void	do_sa(t_stack **stack_a)
+{
+	swap(stack_a);
+	write(1, "sa\n", 3);
+}
+
+void	do_sb(t_stack **stack_b)
+{
+	swap(stack_b);
+	write(1, "sb\n", 3);
+}
+
+void	do_ss(t_stack **stack_a, t_stack **stack_b)
+{
+	swap(stack_a);
+	swap(stack_b);
+	write(1, "ss\n", 3);
+}

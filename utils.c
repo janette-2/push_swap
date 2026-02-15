@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/13 19:27:18 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/14 17:27:43 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,33 +155,23 @@ will be generated.
 Arguments: The amount of numbers registrered in the stack
 
 Returns: For numbers shorter than 5, we would use the function of 
-'sort_three' and not need the chunks division. For numbers shorter than 
-20 we would use chunks of 5 elements. For numbers less than 200 (incluiding 
+'sort_three' and not need the chunks division for indexes. For numbers shorter
+than 20 we would use chunks of 5 elements. For numbers less than 200 (incluiding 
 the reference of 100) we would use divisions by 20 elements. For numbers
 bigger than 200, (including the reference of 500) we would use divisions 
-by 45 elements. For numbers shorter than 5, we would use the 'sort_three'
-function.
+by 45 elements. Gives the limits of the indexes to separate in different
+sections.
 
 */
 
 int	chunks(int size_stack)
 {
-	int	chunks;
-
-	chunks = 0;
 	if (size_stack >= 5 && size_stack < 20)
 		return (5);
 	if (size_stack >= 20 && size_stack <= 200)
-	{
-		chunks = size_stack / 20;
-		if (size_stack % 20 != 0)
-			chunks++;
-	}
+		return (20);
 	if (size_stack > 200)
-	{
-		chunks = size_stack / 45;
-		if (size_stack % 45 != 0)
-			chunks++;
-	}
-	return (chunks);
+		return (45);
+	else
+		return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:27:02 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/13 18:28:40 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/15 01:08:15 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,4 +42,16 @@ void	push(t_stack **origin, t_stack **destiny)
 	(*origin)->next = destiny_copy;
 	*destiny = origin_copy;
 	*origin = new_origin;
+}
+
+void	do_pb(t_stack **stack_a, t_stack **stack_b)
+{
+	push(stack_a, stack_b);
+	write(1, "pb\n", 3);
+}
+
+void	do_pa(t_stack **stack_b, t_stack **stack_a)
+{
+	push(stack_b, stack_a);
+	write(1, "pa\n", 3);
 }
