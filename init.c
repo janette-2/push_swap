@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:20:54 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/11 20:57:56 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/18 23:51:35 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,18 +75,7 @@ execution of the program.
 
 int	long_to_int_limits(char *normalized_element)
 {
-	long	norm_element;
-	int		checked;
-
-	norm_element = ft_atol(normalized_element);
-	if ((norm_element >= -2147483648) && (norm_element <= 2147483647))
-		checked = (int) norm_element;
-	else
-	{
-		write(1, "Error\n", 6);
-		exit(1);
-	}
-	return (checked);
+	return ((int)ft_atol(normalized_element));
 }
 
 /* clear_stack

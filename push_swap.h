@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/18 20:50:02 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/19 00:00:01 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int			not_digits(char *argv);
 /* Numbers_Check */
 char		*clear_filling_zeros(char *new_args);
 char		**numbers_normalized(char *args[]);
-int			limits_check(t_stack *stack);
+//int			limits_check(t_stack *stack);
 void		have_duplicates(t_stack **stack);
 int			nbr_cmp(int n1, int n2);
 
@@ -70,6 +70,10 @@ int			chunks(int size_stack);
 
 /* Utils 1 */
 int			is_ordered(t_stack *stack_a);
+void		sort_two(t_stack **stack_a);
+void		sort_three(t_stack **stack_a);
+void		sort(t_stack **stack_a, t_stack **stack_b);
+int			check_limits(char **normalized);
 
 /* Movements */
 void		swap(t_stack **stack);

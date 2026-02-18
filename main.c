@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/18 21:20:35 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/19 00:03:13 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,13 @@ int	main(int argc, char *argv[])
 	normalized = numbers_normalized(new);
 	if (!normalized)
 		return (free_string_array(&normalized), 0);
+	if (!check_limits(normalized))        // <-- nuevo
+	{
+		free_string_array(&new);
+		free_string_array(&normalized);
+		write(2, "Error\n", 6);
+		exit(1);
+	}
 	stack_a = fill_stack(normalized);
 	free_string_array(&new);
 	free_string_array(&normalized);
@@ -48,8 +55,7 @@ int	main(int argc, char *argv[])
 		clear_stack(&stack_a);
 		exit(1);
 	}
-	sorting_chunks(&stack_a, &stack_b, chunks(get_stack_size(stack_a)));
-	sorting_return(&stack_b, &stack_a);
+	sort(&stack_a, &stack_b);
 	/*temp = stack_a;
 	while (temp)
 	{
