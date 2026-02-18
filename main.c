@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/19 00:03:13 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/19 00:14:07 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	//t_stack *temp;
-	//t_stack *temp1;
 	char	**new;
 	char	**normalized;
 
@@ -37,7 +35,7 @@ int	main(int argc, char *argv[])
 	normalized = numbers_normalized(new);
 	if (!normalized)
 		return (free_string_array(&normalized), 0);
-	if (!check_limits(normalized))        // <-- nuevo
+	if (!check_limits(normalized))
 	{
 		free_string_array(&new);
 		free_string_array(&normalized);
@@ -48,7 +46,6 @@ int	main(int argc, char *argv[])
 	free_string_array(&new);
 	free_string_array(&normalized);
 	have_duplicates(&stack_a);
-	// TESTS--------------
 	fill_index(&stack_a);
 	if (is_ordered(stack_a))
 	{
@@ -56,39 +53,10 @@ int	main(int argc, char *argv[])
 		exit(1);
 	}
 	sort(&stack_a, &stack_b);
-	/*temp = stack_a;
-	while (temp)
-	{
-		printf("Index A: %d\n", temp->index);
-		temp = temp->next;
-	}
-	printf("\n\n");
-	temp1 = stack_b;
-	while (temp1)
-	{
-		printf("Index B: %d\n", temp1->index);
-		temp1 = temp1->next;
-	}*/
-	//////////
-	//-----------FINAL-------
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
 }
 
-
-/* int	main(int argc, char *argv[])
-{
-	(void) argc;
-	t_stack	*swap_a;
-
-	swap_a = fill_stack(argv++);
-	while (swap_a->next)
-	{
-		printf("Value: %d\n", swap_a->value);
-		swap_a = swap_a->next;
-	}
-	return (0);
-} */
 
 /* Como es un programa, cada vez que haces algún cambio, tienes
 que volver a compilar el archivo (para pruebas sin el Makefile) y
