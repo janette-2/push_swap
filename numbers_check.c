@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/23 20:39:49 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 22:27:48 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/18 20:04:51 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ char	*clear_filling_zeros(char *args)
 	}
 	while (args[i] == '0')
 		i++;
+	if (!args[i])
+		cleared[j++] = '0';
 	while (args[i])
 	{
 		cleared[j++] = args[i++];
@@ -187,7 +189,6 @@ void	have_duplicates(t_stack **stack)
 		temp = temp->next;
 	}
 }
-
 
 /* nbr_cmp
 

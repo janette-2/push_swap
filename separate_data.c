@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/06 22:31:42 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/18 20:35:25 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -163,8 +163,8 @@ char	**new_argv(char *argv[])
 	int		j;
 	int		k;
 
-	new = (char **)malloc((nbr_elements(argv++) + 1) * sizeof(char *));
-	i = 0;
+	new = (char **)malloc((nbr_elements(argv) + 1) * sizeof(char *));
+	i = 1;
 	k = 0;
 	while (argv[i])
 	{

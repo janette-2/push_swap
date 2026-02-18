@@ -6,7 +6,7 @@
 #    By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/19 19:09:14 by janrodri          #+#    #+#              #
-#    Updated: 2026/02/14 23:41:02 by janrodri         ###   ########.fr        #
+#    Updated: 2026/02/18 20:49:22 by janrodri         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS = -Wall -Wextra -Werror -I. -I$(LIBFT_DIR)
 SRC = push_swap.c separate_data.c \
 utils.c check_data.c numbers_check.c \
 stack.c init.c push.c rotate.c reverse_rotate.c \
-swap.c sort_chunks.c
+swap.c sort_chunks.c sort_returns.c utils_1.c
 OBJ = $(SRC:.c=.o)
 
 LIBFT_DIR = libft

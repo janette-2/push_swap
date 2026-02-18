@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/15 01:18:49 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/18 20:50:02 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,9 @@ void		free_string_array(char ***array);
 int			assign_index(t_stack *stack_head, t_stack *stack_node);
 int			chunks(int size_stack);
 
+/* Utils 1 */
+int			is_ordered(t_stack *stack_a);
+
 /* Movements */
 void		swap(t_stack **stack);
 void		do_sa(t_stack **stack_a);
@@ -92,5 +95,9 @@ void		inside_chunk_range(t_stack **stack_a,
 int			has_index_in_chunk(t_stack *stack_a, int low, int high);
 int			high_index(int chunks, int size, int i);
 
+/* Sort_Returns */
+void		sorting_return(t_stack **stack_b, t_stack **stack_a);
+int			biggest_index(int size);
+int			position_biggest(t_stack *stack_b, int size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/15 01:21:52 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/18 21:20:35 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack *temp;
-	t_stack *temp1;
+	//t_stack *temp;
+	//t_stack *temp1;
 	char	**new;
 	char	**normalized;
 
@@ -43,8 +43,14 @@ int	main(int argc, char *argv[])
 	have_duplicates(&stack_a);
 	// TESTS--------------
 	fill_index(&stack_a);
+	if (is_ordered(stack_a))
+	{
+		clear_stack(&stack_a);
+		exit(1);
+	}
 	sorting_chunks(&stack_a, &stack_b, chunks(get_stack_size(stack_a)));
-	temp = stack_a;
+	sorting_return(&stack_b, &stack_a);
+	/*temp = stack_a;
 	while (temp)
 	{
 		printf("Index A: %d\n", temp->index);
@@ -56,23 +62,11 @@ int	main(int argc, char *argv[])
 	{
 		printf("Index B: %d\n", temp1->index);
 		temp1 = temp1->next;
-	}
+	}*/
 	//////////
 	//-----------FINAL-------
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
-	//ADAPTAR A NUEVO NBR_CMP Y EL CLEAN_ERROR CON EL ARRAY
-	// if (have_duplicates(array))
-		// clean_error(&stack_a, &stack_b, &args);
-	// stack_a = fill_stack(array);
-	
-	// //PROBAR LOS VALORES RECOGIDOS DENTRO DE LA LISTA DE STACK
-	// temp = stack_a;
-	// while (temp)
-	// {
-	// 	printf("Value: %d\n", temp->value);
-	// 	temp = temp->next;
-	// }
 }
 
 

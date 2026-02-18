@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/14 17:27:43 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/18 20:40:43 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args)
 	if (stack_b)
 		clear_stack(stack_b);
 	i = 0;
-	if (args || *args || (*args)[i])
+	if (args && *args)
 	{
 		while ((*args)[i])
 			free((*args)[i++]);
@@ -166,7 +166,7 @@ sections.
 
 int	chunks(int size_stack)
 {
-	if (size_stack >= 5 && size_stack < 20)
+	if (size_stack < 20)
 		return (5);
 	if (size_stack >= 20 && size_stack <= 200)
 		return (20);
