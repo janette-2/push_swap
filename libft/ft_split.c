@@ -37,7 +37,6 @@ static char	*word_copy(char const *s, char c)
 {
 	int		letters;
 	char	*word;
-	char	*copy;
 	int		i;
 
 	letters = 0;
