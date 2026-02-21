@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/22 19:42:10 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/14 20:00:06 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 18:45:58 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,4 +122,3 @@ void	stack_add_bottom(t_stack **stack, t_stack *bottom)
 	temp->next = bottom;
 	bottom->next = NULL;
 }
-

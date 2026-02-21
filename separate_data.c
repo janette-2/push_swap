@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/19 18:33:12 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/18 20:35:25 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 18:45:07 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,6 @@ char	**separated_argv(char *argv)
 	return (separated_argv);
 }
 
-
 /* checking_entry
 
 Description: Function that detects one by one, if each argument is valid.
@@ -91,7 +90,6 @@ int	check_entry(char *args[])
 	return (1);
 }
 
-
 /* nbr_elements
 
 Description: Function that counts the total of elements given in argv,
@@ -102,7 +100,6 @@ Arguments: The original list of arguments
 
 Returns: The number of total elements counted
 */
-
 
 int	nbr_elements(char *argv[])
 {
@@ -183,4 +180,3 @@ char	**new_argv(char *argv[])
 	new[k] = NULL;
 	return (new);
 }
-

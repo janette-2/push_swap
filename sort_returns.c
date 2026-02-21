@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 17:41:51 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/21 17:13:47 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 18:45:43 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,8 @@ int	biggest_index(int size)
 Determines, when we are reaching the highest index to push it back to A, 
 the position where this target in the stack B. We need to know in which node
 it is, to return the position of it and compare with the middle of the current
-stack, to see if we move the stack to the top or to the bottom in the next actions.
+stack, to see if we move the stack to the top or to the bottom in the next 
+actions.
  */
 
 int	position_biggest(t_stack *stack_b, int size)

@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/08 00:09:41 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/14 22:16:47 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 18:44:20 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,19 +43,19 @@ void	rotate(t_stack **stack)
 	*stack = second;
 }
 
-void do_ra(t_stack **stack_a)
+void	do_ra(t_stack **stack_a)
 {
 	rotate(stack_a);
 	write(1, "ra\n", 3);
 }
 
-void do_rb(t_stack **stack_b)
+void	do_rb(t_stack **stack_b)
 {
 	rotate(stack_b);
 	write(1, "rb\n", 3);
 }
 
-void do_rr(t_stack **stack_a, t_stack **stack_b)
+void	do_rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
 	rotate(stack_b);

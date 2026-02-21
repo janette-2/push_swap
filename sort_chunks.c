@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 17:48:01 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/21 16:58:59 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 18:45:23 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ int	high_index(int chunks, int size, int i)
 		high = size - 1;
 	return (high);
 }
-
 
 /* has_index_in_chunk
 
