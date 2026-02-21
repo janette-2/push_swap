@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/07 18:27:02 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/15 01:08:15 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:42:05 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	push(t_stack **origin, t_stack **destiny)
 	t_stack	*new_origin;
 	t_stack	*destiny_copy;
 
-	if (!origin || !(*origin))
+	if (!origin ||!(*origin))
 		exit(1);
 	origin_copy = *origin;
 	destiny_copy = *destiny;

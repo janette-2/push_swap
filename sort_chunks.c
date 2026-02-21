@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/14 17:48:01 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/15 01:19:23 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:58:59 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,14 @@ void	sorting_chunks(t_stack **stack_a, t_stack **stack_b, int chunks)
 }
 
 /* high_index
- */
+ 
+Description: Function that calculates the index of the highest element 
+inside the current range. Each chunk is delimited in a range of indexes,
+to see the last one of the current range, we use this function. It would
+also calculate the latest of the stack if the last chunk was supposed to 
+end in an index that overflows the capacity of the stack.
+
+*/
 
 int	high_index(int chunks, int size, int i)
 {
@@ -74,11 +81,13 @@ int	high_index(int chunks, int size, int i)
 
 /* has_index_in_chunk
 
-Description:
+Description: Analyses if the stack contains any of the indexes that
+belong to the current chunk. If so, returns true. If there are no 
+indexes of the current chunk left in the stack, returns false.
 
-Arguments:
+Arguments:The stack with the limits of the current stack
 
-Returns: 1 if true, 0 if false 
+Returns: 1 if true, 0 if false.
 
 */
 
@@ -99,12 +108,20 @@ int	has_index_in_chunk(t_stack *stack_a, int low, int high)
 
 /* inside_chunk_range
 
-Description:
+Description: In the process of pushing the elements from A -> B
+we use this function to determine in each case if the element to be
+pushed in the current chunks belongs to the hhigher indexes, if so,
+executes a push and rotates the element once in B to keep the higher indexes
+next to the bottom. If the current element to be pushd in this chunk belongs to
+the lower indexes just pushes the elements to B to keep them next to 
+the top in B.
 
-Arguments:
+Arguments: The stack A, B the low index of the current chunk and
+the total of chunks to calculate the middle element in each chunk.
 
-Returns:
+Returns:Nothing, just executes the action.
 */
+
 void	inside_chunk_range(t_stack **stack_a,
 		t_stack **stack_b, int low, int chunks)
 {

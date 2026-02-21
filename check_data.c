@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/17 14:15:23 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/03 18:50:38 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:39:10 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,26 +157,3 @@ int	not_digits(char *argv)
 		return (0);
 	return (1);
 }
-
-//ANALIZAR EL CASO EN EL QUE TE PASEN UN ÚNICO NÚMERO. QUÉ DEVUELVE?
-//VER SI DEBERIA SER ROBUSTO CON RESPECTO A LOS FILLING_ZEROS ESTE TAMBIÉN
-
-
-
-// LIBFT: Añadir ft_memchr y ft_strlen
-
-
-// SHROTCUT COMMENTS: Truco para comentar una única linea 
-// (o selección de varias): presionar ctrl +k y ctrl + c 
-// Para descomentar sería ctrl + k y ctrl + u . 
-// Para bloques también puede usar shift + alt + a
-
-// FINAL *ARGV[]: Para identificar el final 
-// de los argumentos que ha recopilado main *argv[]
-// acaba siempre con NULL.
-
-// BASH QUOTING: Ten en cuenta que cuando se pasa una string por *argv[] cuando
-// vayas a leer el primer char de esa string, aunque se identifiquen con "" o ''
-// estos se interpretan como caracteres especiales de especificación de formato.
-// NO VERÁS COMO char[0] = " PORQUE ES UNA CONVERSIÓN INTRÍNSECA A 
-// FORMATOS DE DATOS (ver en Quoting del man bash)

@@ -6,13 +6,18 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:43:31 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/18 23:54:37 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 17:20:07 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* is_ordered */
+/* is_ordered 
+
+Function that analyses if the indexes assigned to the stack 
+are already sorted. If so, finishes the execution of the program.
+Returns 1 if true, 0 if false.
+*/
 
 int	is_ordered(t_stack *stack_a)
 {
@@ -29,6 +34,10 @@ int	is_ordered(t_stack *stack_a)
 	return (0);
 }
 
+/* sort_two
+
+Function to optimize the sorting of a stack with two elements.
+ */
 
 void	sort_two(t_stack **stack_a)
 {
@@ -36,6 +45,10 @@ void	sort_two(t_stack **stack_a)
 		do_sa(stack_a);
 }
 
+/* sort_three
+
+Function to optimize the sorting of a stack with three elements.
+ */
 
 void	sort_three(t_stack **stack_a)
 {
@@ -46,6 +59,12 @@ void	sort_three(t_stack **stack_a)
 	if ((*stack_a)->index > (*stack_a)->next->index)
 		do_sa(stack_a);
 }
+
+/* sort
+
+Function that determines which 'sort' function to use according
+to the amount of elements in the stack.
+*/
 
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
@@ -62,6 +81,16 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		sorting_return(stack_b, stack_a);
 	}
 }
+/* check_limits
+
+Function that after having the arguments normalized into simple numbers
+analyses if the numbers contained are inside of the allowed range of values
+of the 'int' data type. First, converts the numbers from string to long and 
+after that, it checks if the value is inside the limits.
+If any of them are outside the limits returns 0, if all of them are inside the
+limits returns 1.
+
+*/
 
 int	check_limits(char **normalized)
 {

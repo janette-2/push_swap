@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 13:40:30 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/18 20:40:43 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/21 16:44:43 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	clean_error(t_stack **stack_a, t_stack **stack_b, char ***args)
 			free((*args)[i++]);
 		free(*args);
 	}
-	write(1, "Error\n", 6);
+	write(2, "Error\n", 6);
 	exit(1);
 }
 
