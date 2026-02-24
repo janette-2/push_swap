@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/21 17:33:17 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/24 22:03:15 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static t_stack	*parse_input(int argc, char *argv[], char **new,
 {
 	t_stack	*stack_a;
 
-	if (argc < 2 || empty_argv(argv))
+	(void)argc;
+	if (empty_argv(argv))
 		clean_error(NULL, NULL, NULL);
 	new = new_argv(argv);
 	if (!new || check_entry(new) == 0)
@@ -49,9 +50,12 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
+	t_stack	*temp;
 	char	**new;
 	char	**normalized;
 
+	if (argc < 2)
+		return (0);
 	init_stacks(&stack_a, &stack_b, &new, &normalized);
 	stack_a = parse_input(argc, argv, new, normalized);
 	have_duplicates(&stack_a);
@@ -59,6 +63,12 @@ int	main(int argc, char *argv[])
 	if (is_ordered(stack_a))
 		return (clear_stack(&stack_a), exit(0), 0);
 	sort(&stack_a, &stack_b);
+	temp = stack_a;
+	while (temp)
+	{
+		printf ("Result: %d\n", temp->value);
+		temp = temp->next;
+	}
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
 	return (0);
