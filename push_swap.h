@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/25 08:49:32 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 23:23:46 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,11 +102,12 @@ void		sorting_return(t_stack **stack_b, t_stack **stack_a);
 int			biggest_index(int size);
 int			position_biggest(t_stack *stack_b, int size);
 
-/* Sort_Five */
+/* Sort_Few */
 
 int			position_index(t_stack *stack, int index);
 void		sort_five(t_stack **stack_a, t_stack **stack_b);
 void		sort_two(t_stack **stack_a);
 void		sort_three(t_stack **stack_a);
+void		sort_four(t_stack **stack_a, t_stack **stack_b);
 
 #endif

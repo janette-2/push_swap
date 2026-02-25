@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:43:31 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/25 08:47:36 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 23:31:38 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 		sort_two(stack_a);
 	else if (size == 3)
 		sort_three(stack_a);
+	else if (size == 4)
+		sort_four(stack_a, stack_b);
 	else if (size == 5)
 		sort_five(stack_a, stack_b);
 	else

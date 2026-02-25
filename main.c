@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/18 17:35:14 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/24 22:03:15 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 22:47:24 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int	main(int argc, char *argv[])
 {
 	t_stack	*stack_a;
 	t_stack	*stack_b;
-	t_stack	*temp;
 	char	**new;
 	char	**normalized;
 
@@ -63,13 +62,16 @@ int	main(int argc, char *argv[])
 	if (is_ordered(stack_a))
 		return (clear_stack(&stack_a), exit(0), 0);
 	sort(&stack_a, &stack_b);
-	temp = stack_a;
-	while (temp)
-	{
-		printf ("Result: %d\n", temp->value);
-		temp = temp->next;
-	}
 	clear_stack(&stack_a);
 	clear_stack(&stack_b);
 	return (0);
 }
+
+// t_stack	*temp;
+
+// temp = stack_a;
+// 	while (temp)
+// 	{
+// 		printf ("Result: %d\n", temp->value);
+// 		temp = temp->next;
+// 	}

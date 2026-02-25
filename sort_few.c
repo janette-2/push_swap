@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/25 08:24:46 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/25 08:50:22 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 23:23:17 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,18 @@ void	sort_three(t_stack **stack_a)
 		do_rra(stack_a);
 	if ((*stack_a)->index > (*stack_a)->next->index)
 		do_sa(stack_a);
+}
+
+void	sort_four(t_stack **stack_a, t_stack **stack_b)
+{
+	while (position_index(*stack_a, 0) != 0)
+	{
+		if (position_index(*stack_a, 0) < 1)
+			do_ra(stack_a);
+		else
+			do_rra(stack_a);
+	}
+	do_pb(stack_a, stack_b);
+	sort_three(stack_a);
+	do_pa(stack_b, stack_a);
 }
