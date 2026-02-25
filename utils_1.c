@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:43:31 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/24 21:56:14 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 08:47:36 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,32 +34,6 @@ int	is_ordered(t_stack *stack_a)
 	return (0);
 }
 
-/* sort_two
-
-Function to optimize the sorting of a stack with two elements.
- */
-
-void	sort_two(t_stack **stack_a)
-{
-	if ((*stack_a)->index > (*stack_a)->next->index)
-		do_sa(stack_a);
-}
-
-/* sort_three
-
-Function to optimize the sorting of a stack with three elements.
- */
-
-void	sort_three(t_stack **stack_a)
-{
-	if ((*stack_a)->index > (*stack_a)->next->index)
-		do_sa(stack_a);
-	if ((*stack_a)->next->index > (*stack_a)->next->next->index)
-		do_rra(stack_a);
-	if ((*stack_a)->index > (*stack_a)->next->index)
-		do_sa(stack_a);
-}
-
 /* sort
 
 Function that determines which 'sort' function to use according
@@ -76,21 +50,14 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	else if (size == 3)
 		sort_three(stack_a);
 	else if (size == 5)
-	{
-		do_pb(stack_a, stack_b);
-		do_pb(stack_a, stack_b);
-		sort_two(stack_b);
-		sort_three(stack_a);
-		do_sb(stack_b);
-		do_pa(stack_b, stack_a);
-		do_pa(stack_b, stack_a);
-	}
+		sort_five(stack_a, stack_b);
 	else
 	{
 		sorting_chunks(stack_a, stack_b, chunks(size));
 		sorting_return(stack_b, stack_a);
 	}
 }
+
 /* check_limits
 
 Function that after having the arguments normalized into simple numbers

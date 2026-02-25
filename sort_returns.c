@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 17:41:51 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/21 18:45:43 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 07:53:46 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,3 +96,4 @@ int	position_biggest(t_stack *stack_b, int size)
 	}
 	return (pos);
 }
+// PONER AQUÍ SORT

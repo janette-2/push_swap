@@ -6,7 +6,7 @@
 /*   By: janrodri <janrodri@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/13 21:00:44 by janrodri          #+#    #+#             */
-/*   Updated: 2026/02/19 00:00:01 by janrodri         ###   ########.fr       */
+/*   Updated: 2026/02/25 08:49:32 by janrodri         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,6 @@ int			chunks(int size_stack);
 
 /* Utils 1 */
 int			is_ordered(t_stack *stack_a);
-void		sort_two(t_stack **stack_a);
-void		sort_three(t_stack **stack_a);
 void		sort(t_stack **stack_a, t_stack **stack_b);
 int			check_limits(char **normalized);
 
@@ -103,5 +101,12 @@ int			high_index(int chunks, int size, int i);
 void		sorting_return(t_stack **stack_b, t_stack **stack_a);
 int			biggest_index(int size);
 int			position_biggest(t_stack *stack_b, int size);
+
+/* Sort_Five */
+
+int			position_index(t_stack *stack, int index);
+void		sort_five(t_stack **stack_a, t_stack **stack_b);
+void		sort_two(t_stack **stack_a);
+void		sort_three(t_stack **stack_a);
 
 #endif
